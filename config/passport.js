@@ -2,7 +2,7 @@
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const db = require("../models");
+const db = require("../models/host");
 
 //Set up passport Local Stragey (use pasport LocalStrategy) and login with user's email and password 
 
