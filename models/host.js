@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         // REMOVED ZIP TO MATCH OFF OF CITY INSTEAD
