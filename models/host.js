@@ -35,11 +35,60 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        phone: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        // REMOVED ZIP TO MATCH OFF OF CITY INSTEAD
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        bio: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        small: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        med: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        large: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        giant: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        // eslint-disable-next-line camelcase
+        is_pup: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        // eslint-disable-next-line camelcase
+        pet_amt: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        available: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        }
     });
 
     //Create a custom method for Host Model.
     // Check if the unhashed password entered by the host matches any hashed password stored in the database
-    Host.prototype.validPassword = function(password) {
+    Host.prototype.validPassword = function (password) {
         //bcrypt.compareSync() returns true or false
         return bcrypt.compareSync(password, this.password);
     };
@@ -49,6 +98,14 @@ module.exports = (sequelize, DataTypes) => {
     Host.addHook("beforeCreate", (host) => {
         host.password = bcrypt.hashSync(host.password, bcrypt.genSaltSync(10), null);
     });
+
+    Host.associate = function (models) {
+        // We're saying that a Post should belong to an Author
+        // A Post can't be created without an Author due to the foreign key constraint
+        Host.hasOne(models.Booking, {
+            onDelete: "cascade"
+        });
+    };
 
     //after hashing password, return Host Model
     return Host;
