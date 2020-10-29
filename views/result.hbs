@@ -1,0 +1,18 @@
+{!-- Psuedo: Render the results of a seeker's search query from index/landing page --}
+
+
+
+<!-- button in the available host's li box to book that specific host -->
+
+<h1>Results</h1>
+
+<div class="">
+    <ul>
+        {{#each}}
+        <li>
+            {{ Host }}
+            <button type="submit" class="">Book</button>
+        </li>
+        {{/each}}
+    </ul>
+</div>
