@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         // eslint-disable-next-line camelcase
-        lasst_name: {
+        last_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
