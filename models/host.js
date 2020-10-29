@@ -100,10 +100,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Host.associate = function (models) {
-        // We're saying that a Post should belong to an Author
-        // A Post can't be created without an Author due to the foreign key constraint
         Host.hasOne(models.Booking, {
-            onDelete: "cascade"
+            foreignKey: "host_id"
         });
     };
 
