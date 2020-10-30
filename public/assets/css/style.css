@@ -1,80 +1,81 @@
 /*/ Styles added by Tanner /*/
-.top-bar, .top-bar ul {
-    background: white;
+.top-bar,
+.top-bar ul {
+	background: white;
 }
 
 nav#mainNavigation.top-bar {
-    max-height: 75px;
-    border-bottom: 2px;
+	max-height: 75px;
+	border-bottom: 2px;
 }
 
 img#furlodge-logo {
-    max-width: 250px;
-    margin-left: 5px;
+	max-width: 250px;
+	margin-left: 5px;
 }
 
 @media only screen and (max-width: 550px) {
-    ul.dropdown.menu {
-        float: right;;
-    }
-    .top-bar .top-bar-left {
-        max-width: 200px;
-    }
-    .top-bar .top-bar-right {
-        max-width: 100px;
-    }
-    img#furlodge-logo {
-        max-width: 200px;
-    }
+	ul.dropdown.menu {
+		float: right;
+	}
+	.top-bar .top-bar-left {
+		max-width: 200px;
+	}
+	.top-bar .top-bar-right {
+		max-width: 100px;
+	}
+	img#furlodge-logo {
+		max-width: 200px;
+	}
 }
 
 a.host-dropdown {
-    font-size: 25px;
-    font-weight: 500;
-    color: black;
+	font-size: 25px;
+	font-weight: 500;
+	color: black;
 }
 
 .dropdown.menu li.is-dropdown-submenu-parent a::after {
-    display: none;
+	display: none;
 }
 
 li.is-submenu-item.is-dropdown-submenu-item a {
-    color: black;
-    font-size: 18px;
+	color: black;
+	font-size: 18px;
 }
 
 li.is-submenu-item.is-dropdown-submenu-item a:hover {
-    color: #1779ba;
+	color: #1779ba;
 }
 
 .is-dropdown-submenu {
-    border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
 }
 
 body {
-    background-image: url("./assets/images/furlodge-background.jpg");
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	/* background-image: url("./assets/images/furlodge-background.jpg"); */
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /*/ Styles added by Christian /*/
 form .form-icons {
-  text-align: center;
+	text-align: center;
 }
 
 form .form-icons h4 {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 form .form-icons .input-group-label {
-  background-color: #1779ba;
-  border-color: #1779ba;
+	background-color: #1779ba;
+	border-color: #1779ba;
 }
 
 form .form-icons .input-group-field {
-  border-color: #1779ba;
+	border-color: #1779ba;
 }
 
 form .form-icons .fa {
-  color: white;
-  width: 1rem;
+	color: white;
+	width: 1rem;
 }

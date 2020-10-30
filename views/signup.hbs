@@ -2,7 +2,7 @@
 
 
     <!-- seeker info -->
-<form>
+<form class="signup">
   <div class="form-icons">
     <h4>Become a Host on Fur-Lodge!</h4>
 
@@ -10,16 +10,28 @@
       <span class="input-group-label">
         <i class="fa fa-envelope"></i>
       </span>
-      <input class="input-group-field" type="text" placeholder="Email">
+        {{!-- User form input attributes to valid user input--}}
+      <input type="email" id="email" class="input-group-field" required placeholder="Email">
     </div>
 
     <div class="input-group">
       <span class="input-group-label">
         <i class="fa fa-key"></i>
       </span>
-      <input class="input-group-field" type="text" placeholder="Password">
+      {{!-- User form input attributes to valid user input--}}
+      {{!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" --}}
+      <input type="password" id="password" class="input-group-field" required placeholder="Password">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-label">
+        <i class="fa fa-key"></i>
+      </span>
+      {{!-- User form input attributes to valid user input--}}
+      <input type="password" id="confirm-password" class="input-group-field" required placeholder="Confirm Password">
     </div>
   </div>
 
   <button class="button expanded">Sign Up</button>
 </form>
+
