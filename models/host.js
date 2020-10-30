@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
             unique: true,
             validate: {
                 isEmail: true,
+                len: [1,255]
             },
         },
         //Password cannot be null
@@ -25,28 +26,49 @@ module.exports = (sequelize, DataTypes) => {
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [1,255]
+            }
         },
         // eslint-disable-next-line camelcase
         last_name: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [1,255]
+            }
         },
         rate: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            validate: {
+                isInt: true,
+                min: 20,
+                max: 100
+            }
         },
         phone: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                isNumeric: true,
+                len: [10,10]
+            }
         },
         // REMOVED ZIP TO MATCH OFF OF CITY INSTEAD
         city: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [1,255]
+            }
         },
         bio: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [1,255]
+            }
         },
         small: {
             type: DataTypes.BOOLEAN,
@@ -78,6 +100,25 @@ module.exports = (sequelize, DataTypes) => {
         pet_amt: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            validate: {
+                isInt: true,
+                min: 1,
+                max: 5,
+                len: 1
+            }
+        },
+        // eslint-disable-next-line camelcase
+        long_term: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+
+        },
+        // eslint-disable-next-line camelcase
+        short_term: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
         },
         available: {
             type: DataTypes.BOOLEAN,
