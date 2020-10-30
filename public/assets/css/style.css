@@ -1,3 +1,4 @@
+/*/ Styles added by Tanner /*/
 .top-bar, .top-bar ul {
     background: white;
 }
@@ -53,4 +54,27 @@ li.is-submenu-item.is-dropdown-submenu-item a:hover {
 body {
     background-image: url("./assets/images/furlodge-background.jpg");
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/*/ Styles added by Christian /*/
+form .form-icons {
+  text-align: center;
+}
+
+form .form-icons h4 {
+  margin-bottom: 1rem;
+}
+
+form .form-icons .input-group-label {
+  background-color: #1779ba;
+  border-color: #1779ba;
+}
+
+form .form-icons .input-group-field {
+  border-color: #1779ba;
+}
+
+form .form-icons .fa {
+  color: white;
+  width: 1rem;
 }

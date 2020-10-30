@@ -7,11 +7,17 @@ module.exports = (sequelize, DataTypes) => {
         first_name: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [1,50]
+            } 
         },
         // eslint-disable-next-line camelcase
         last_name: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [1,50]
+            }
         },
         email: {
             type: DataTypes.STRING,
@@ -19,47 +25,66 @@ module.exports = (sequelize, DataTypes) => {
             unique: true,
             validate: {
                 isEmail: true,
+                len: [1,255]
             },
         },
         phone: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                isNumeric: true,
+                len: [10,10]
+            }
         },
         // eslint-disable-next-line camelcase
         pet_amt: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            validate: {
+                isInt: true,
+                min: 1,
+                max: 5,
+                len: 1
+            }
         },
         small: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+            defaultValue: false,
         },
         med: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+            defaultValue: false,
         },
         large: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+            defaultValue: false,
         },
         giant: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+            defaultValue: false,
         },
         // eslint-disable-next-line camelcase
         is_pup: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
+            defaultValue: false,
         },
         // eslint-disable-next-line camelcase
         long_term: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
+            defaultValue: false,
+
         },
         // eslint-disable-next-line camelcase
         short_term: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: false,
+            defaultValue: false,
         }
     });
 
@@ -71,7 +96,6 @@ module.exports = (sequelize, DataTypes) => {
             },
         });
     };
-
     //Return Booking Model
     return Booking;
 };
