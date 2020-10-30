@@ -11,7 +11,7 @@ module.exports = {
         // port: 3307,
         dialect: "mysql"
     }, 
-    development: {
+    test: {
         username: process.env.MYSQL_USERNAME,
         password: process.env.MYSQL_PASSWORD,
         database: process.env.MYSQL_DB_NAME,
@@ -19,12 +19,15 @@ module.exports = {
         // port: 3307,
         dialect: "mysql"
     }, 
-    development: {
+    production: {
         username: process.env.MYSQL_USERNAME,
         password: process.env.MYSQL_PASSWORD,
         database: process.env.MYSQL_DB_NAME,
         host: process.env.MYSQL_HOST,
         // port: 3307,
-        dialect: "mysql"
+        // eslint-disable-next-line camelcase
+        use_env_variable: "JAWSDB_URL",
+        dialect: "mysql",
+        
     }
 };
