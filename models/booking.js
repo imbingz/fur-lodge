@@ -25,6 +25,42 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        // eslint-disable-next-line camelcase
+        pet_amt: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        small: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        med: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        large: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        giant: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        // eslint-disable-next-line camelcase
+        is_pup: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        // eslint-disable-next-line camelcase
+        long_term: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        // eslint-disable-next-line camelcase
+        short_term: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        }
     });
 
     Booking.associate = function(models) {

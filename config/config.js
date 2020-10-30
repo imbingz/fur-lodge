@@ -8,7 +8,7 @@ module.exports = {
         password: process.env.MYSQL_PASSWORD,
         database: "furlodge_db",
         host: "127.0.0.1",
-        // port: 3307, //TAKE OUT!
+        // port: 3307,
         dialect: "mysql"
     }, 
     development: {
