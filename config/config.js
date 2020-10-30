@@ -1,21 +1,21 @@
 //Import keys.js for config
 const key = require("../key.js");
-console.log(key);
 
 //Export config
 module.exports = {
     development: {
-        username: "root",
-        password: "password",
-        database: "furlodge_db",
-        host: "127.0.0.1",
+        username: key.username,
+        password: key.password,
+        database: key.database,
+        host: key.host,
         dialect: "mysql"
+         
     },
     test: {
-        username: "root",
-        password: null,
-        database: "furlodge_db",
-        host: "127.0.0.1",
+        username: key.username,
+        password: key.password,
+        database: key.database,
+        host: key.host,
         dialect: "mysql"
     },
     production: {
