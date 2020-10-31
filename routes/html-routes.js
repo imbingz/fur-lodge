@@ -1,4 +1,5 @@
 // Requiring our custom middleware for checking if a user is logged in
+// eslint-disable-next-line no-unused-vars
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
