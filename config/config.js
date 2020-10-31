@@ -8,7 +8,7 @@ module.exports = {
         password: key.password,
         database: key.database,
         host: key.host,
-        // port: "3307",
+        port: key.port,
         dialect: "mysql"
          
     },
@@ -17,6 +17,7 @@ module.exports = {
         password: key.password,
         database: key.database,
         host: key.host,
+        port: key.port,
         // port: "3307",
         dialect: "mysql"
     },
