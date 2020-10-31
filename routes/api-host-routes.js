@@ -2,29 +2,35 @@ const db = require("../models");
 
 module.exports = function (app) {
 
-    app.post("/host", (req, res) => {
+    app.post("/api/host", (req, res) => {
         db.Host.create(req.body)
             .then(results => res.json(results))
             .catch(error => console.log(error));
     });
 
-    app.post("/booking", (req,res) => {
-        db.Booking.create(req.body)
-            .then(results => res.json(results))
-            .catch(error => console.log(error));
-    });
-
-    app.get("/booking", (req,res) => {
-        db.Booking.findAll({
-            include: [db.Host]
+    app.get("/api/host", (req,res) => {
+        db.Host.findAll({
+            include: [db.Booking]
         })
             .then(results => res.json(results))
             .catch(error => console.log(error));
     });
 
-    app.get("/host", (req,res) => {
+    app.get("/api/host/:id", (req,res) => {
         db.Host.findAll({
+            where: req.params.id,
             include: [db.Booking]
+        })
+            .then(results => res.json(results))
+            .catch(error => console.log(error));
+    });
+
+    app.post("/api/host/search", (req,res) => {
+        req.body.available = true;
+        console.log(req.body);
+        db.Host.findAll({
+            attributes: ["first_name", "last_name", "email", "phone", "city","bio"],
+            where: req.body
         })
             .then(results => res.json(results))
             .catch(error => console.log(error));

@@ -37,4 +37,5 @@ module.exports = function(app) {
     app.get("/profile", (req, res) => {
         res.render("profile");
     });
+
 };
