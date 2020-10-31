@@ -7,7 +7,7 @@ module.exports = function(app) {
     app.get("/", (req, res) => {
     // If the hosts already has an account send host to host-profile page
         if (req.user) {
-            res.render("/profile");
+            res.render("profile");
         }
         res.render("index");
     });
@@ -15,7 +15,7 @@ module.exports = function(app) {
     app.get("/signup", (req, res) => {
     // If the hosts already has an account send host to host-profile page
         if (req.user) {
-            res.render("/profile");
+            res.render("profile");
         }
         res.render("signup");
     });
@@ -23,7 +23,7 @@ module.exports = function(app) {
     app.get("/login", (req, res) => {
     // 	// If the hosts already has an account send them to the host-profile page
         if (req.user) {
-            res.render("/profile");
+            res.render("profile");
         }
         res.render("login");
     });
@@ -56,8 +56,8 @@ module.exports = function(app) {
             include: [db.Booking]
         })
             .then((results) => {
-                console.log(results);
-                res.render("profile", {name: results.first_name});
+                console.log("datavalues",results.dataValues);
+                res.render("profile", {host: results.dataValues});
             })
             .catch(error => console.log(error));
     });
