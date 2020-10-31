@@ -1,12 +1,5 @@
 <!-- Psuedo: A series of forms for the host to enter their information (submit/update/delete functionality) --> 
 <!-- Host Profile -->  
-
-{{name}}
-{{!-- <ul>
-    {{#each host}}
-    <li>{{this.first_name}}</li>
-    {{/each}}
-</ul> --}}
 {{!-- temporary h1 --}}
 
 <h1>Host Profile</h1>
@@ -14,36 +7,47 @@
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
         <div class="small-8 cell">
-            {{!-- <ul>
-                <li>Name: {{first_name}} {{last_name}} </li>
-                <li>Email: {{email}} </li>
-                <li>Phone: {{phone}} </li>
-                <li>City: {{city}} </li>
-                <li>Bio: {{bio}} </li>
-                <li>Host Dogs: {{is_pup}} </li>
-                <li>Host Cats: {{is_cat}} </li>
-                <li>Rate: ${{rate}} </li>
-                <li>Day Sitting: {{short_term}} </li>
-                <li>Boarding: {{long_term}} </li>
-                <li>Host small pets (0-15lbs): {{small}} </li>
-                <li>Host medium pets (16-40lbs): {{medium}} </li>
-                <li>Host large pets (41-100lbs): {{large}} </li>
-                <li>Host giant pets (100+lbs): {{giant}} </li>
-                <li>You are available immediately: {{available}} </li>
-            </ul> --}}
+            <ul>
+            {{!-- {{#each host}} --}}
+                <li>Name: {{host.first_name}} {{host.last_name}} </li>
+                <li>Email: {{host.email}} </li>
+                <li>Phone: {{host.phone}} </li>
+                <li>City: {{host.city}} </li>
+                <li>Bio: {{host.bio}} </li>
+                <li>Host Dogs: {{host.is_pup}} </li>
+                <li>Host Cats: {{host.is_cat}} </li>
+                <li>Rate: ${{host.rate}} </li>
+                <li>Day Sitting: {{host.short_term}} </li>
+                <li>Boarding: {{host.long_term}} </li>
+                <li>Host small pets (0-15lbs): {{host.small}} </li>
+                <li>Host medium pets (16-40lbs): {{host.med}} </li>
+                <li>Host large pets (41-100lbs): {{host.large}} </li>
+                <li>Host giant pets (100+lbs): {{host.giant}} </li>
+                <li>You are available immediately: {{host.available}} </li>
+            {{!-- {{/each}} --}}
+            </ul>
         </div>
     </div>
 </div>
 
-
 <!-- Profile of seeker you are currently booked with --> 
+{{#unless host.Booking}}
 
 <div class="">
     <ul>
-        {{!-- {{#each}} --}}
-        <li>
-            {{!-- {{seeker?}} --}}
-        </li>
-        {{!-- {{/each}} --}}
+        <li>Name: {{host.Booking.dataValues.first_name}} {{host.Booking.dataValues.last_name}} </li>
+        <li>Email: {{host.Booking.dataValues.email}} </li>
+        <li>Phone: {{host.Booking.dataValues.phone}} </li>
+        <li>Booking Dogs: {{host.Booking.dataValues.is_pup}} </li>
+        <li>Booking Cats: {{host.Booking.dataValues.is_cat}} </li>
+        <li>Day Sitting: {{host.Booking.dataValues.short_term}} </li>
+        <li>Boarding: {{host.Booking.dataValues.long_term}} </li>
+        <li>Pet Amount: {{host.Booking.dataValues.pet_amt}} </li>
+        <li>Rate: ${{host.Booking.dataValues.rate}} </li>
+        <li>Booking small pets (0-15lbs): {{host.Booking.dataValues.small}} </li>
+        <li>Booking medium pets (16-40lbs): {{host.Booking.dataValues.med}} </li>
+        <li>Booking large pets (41-100lbs): {{host.Booking.dataValues.large}} </li>
+        <li>Booking giant pets (100+lbs): {{host.Booking.dataValues.giant}} </li>
     </ul>
 </div>
+{{/unless}}

@@ -36,6 +36,21 @@ module.exports = (sequelize, DataTypes) => {
                 len: [10,10]
             }
         },
+        rate: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                isInt: true,
+                min: 20,
+                max: 100
+            }
+        },
+        // eslint-disable-next-line camelcase
+        is_cat: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
         // eslint-disable-next-line camelcase
         pet_amt: {
             type: DataTypes.INTEGER,
@@ -85,7 +100,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false,
-        }
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1,255]
+            }
+        },
     });
 
     Booking.associate = function(models) {
