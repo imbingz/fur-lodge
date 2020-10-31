@@ -134,7 +134,7 @@ module.exports = (sequelize, DataTypes) => {
         return bcrypt.compareSync(password, this.password);
     };
 
-    //Hooks (also known as callbacks or lifecycle events), are functions which are called before and after calls in sequelize are executed. They run during varoiud phases of the Host Model lifecycle
+    //Hooks (also known as callbacks or lifecycle events), are functions which are called before and after calls in sequelize are executed. They run during various phases of the Host Model lifecycle
     //Here before a host is created, hooks will automatically hash hosts password
     Host.addHook("beforeCreate", (host) => {
         host.password = bcrypt.hashSync(host.password, bcrypt.genSaltSync(10), null);
