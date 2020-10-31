@@ -18,6 +18,7 @@ module.exports = {
         database: key.database,
         host: key.host,
         port: key.port,
+        // port: "3307",
         dialect: "mysql"
     },
     production: {

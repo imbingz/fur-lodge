@@ -55,7 +55,7 @@ $(() => {
         isGiant = $(this).is(":checked") ? $("input[name=giant]:checked", "form.signup").val() : (isGiant = 0);
     });
 
-    //Size - Availability
+    //Availability
     $("input#availability").on("change", function() {
         isAvailable = $(this).is(":checked") ? $("input[name=availabile]:checked", "form.signup").val() : (isAvailable = 0);
     });
