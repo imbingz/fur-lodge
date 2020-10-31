@@ -31,10 +31,11 @@ app.set("view engine", "hbs");
 // Requiring routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-host-routes.js")(app);
+require("./routes/api-booking-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 //Make sure to take {force: true} out 
-db.sequelize.sync({force: true}).then(() => {
+db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
 		  console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
 	  });
