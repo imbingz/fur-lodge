@@ -38,15 +38,6 @@ module.exports = (sequelize, DataTypes) => {
                 len: [1,255]
             }
         },
-        rate: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                isInt: true,
-                min: 20,
-                max: 100
-            }
-        },
         phone: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -70,6 +61,56 @@ module.exports = (sequelize, DataTypes) => {
                 len: [1,255]
             }
         },
+        // eslint-disable-next-line camelcase
+        is_pup: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+
+        // eslint-disable-next-line camelcase
+        is_cat: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+        rate: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                isInt: true,
+                min: 20,
+                max: 100
+            }
+        },
+        
+        // eslint-disable-next-line camelcase
+        short_term: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        },
+
+        // eslint-disable-next-line camelcase
+        long_term: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+
+        },
+
+        // eslint-disable-next-line camelcase
+        pet_amt: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                isInt: true,
+                min: 1,
+                max: 5,
+                len: 1
+            }
+        },
+
         small: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -90,36 +131,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             defaultValue: false,
         },
-        // eslint-disable-next-line camelcase
-        is_pup: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: false,
-        },
-        // eslint-disable-next-line camelcase
-        pet_amt: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                isInt: true,
-                min: 1,
-                max: 5,
-                len: 1
-            }
-        },
-        // eslint-disable-next-line camelcase
-        long_term: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: false,
-
-        },
-        // eslint-disable-next-line camelcase
-        short_term: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: false,
-        },
+        
         available: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

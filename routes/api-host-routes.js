@@ -29,4 +29,13 @@ module.exports = function (app) {
             .then(results => res.json(results))
             .catch(error => console.log(error));
     });
+
+    //Host signup route handler - ***** need to change res.redirect path later 
+    app.post("/api/signup", (req, res) => {
+        db.Host.create(req.body)
+            .then(() => res.redirect("/profile"))
+            .catch((err) => {
+                res.status(401).json(err);
+            });
+    });
 };

@@ -1,4 +1,5 @@
 // Requiring our custom middleware for checking if a user is logged in
+// eslint-disable-next-line no-unused-vars
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
@@ -28,7 +29,12 @@ module.exports = function(app) {
 
     // Here we've add our isAuthenticated middleware to this route.
     // If the hosts who is not logged in tries to access this route they will be redirected to the signup page
-    app.get("/profile", isAuthenticated, (req, res) => {
+    // app.get("/profile", isAuthenticated, (req, res) => {
+    //     res.render("profile");
+    // });
+
+    // ***** use this without isAuthenticated middleware temporarily
+    app.get("/profile", (req, res) => {
         res.render("profile");
     });
 };
