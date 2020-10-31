@@ -66,14 +66,13 @@ module.exports = function (app) {
     //Host signup route handler - ***** need to change res.redirect path later 
     app.post("/api/signup", (req, res) => {
         db.Host.create(req.body)
-            .then(() => res.redirect(307, "/api/signin"))
+            .then(() => res.redirect(307, "/api/login"))
             .catch((err) => {
                 res.status(401).json(err);
             });
     });
 
-    app.post("/api/signin", passport.authenticate("local"), (req, res) => {
-        console.log("requser:", req.user);
+    app.post("/api/login", passport.authenticate("local"), (req, res) => {
         res.json(req.user);
         
     });
