@@ -8,62 +8,62 @@ $(() => {
     //is_pup
 
     $("input#dog").on("change", function() {
-        isDog = $(this).is(":checked") ? parseInt($("input[name=dog]:checked", "form.signup").val()) : (isDog = 0);
+        isDog = $(this).is(":checked") ? $("input[name=dog]:checked", "form.signup").val() : (isDog = 0);
     });
 
     //is_cat
     $("input#cat").on("change", function() {
-        isCat = $(this).is(":checked") ? parseInt($("input[name=cat]:checked", "form.signup").val()) : (isCat = 0);
+        isCat = $(this).is(":checked") ? $("input[name=cat]:checked", "form.signup").val() : (isCat = 0);
     });
 
     //Rate value - from number box
     $("input#rate").on("keyup mouseup", function() {
-        rateValue = parseInt($(this).val());
+        rateValue = $(this).val();
     });
 
     //short_term
     $("input#short-term").on("change", function() {
-        isShortTerm = $(this).is(":checked") ? parseInt($("input[name=short_term]:checked", "form.signup").val()) : (isShortTerm = 0);
+        isShortTerm = $(this).is(":checked") ? $("input[name=short_term]:checked", "form.signup").val() : (isShortTerm = 0);
     });
 
     //long_term
     $("input#long-term").on("change", function() {
-        isLongTerm = $(this).is(":checked") ? parseInt($("input[name=long_term]:checked", "form.signup").val()) : (isLongTerm = 0);
+        isLongTerm = $(this).is(":checked") ? $("input[name=long_term]:checked", "form.signup").val() : (isLongTerm = 0);
     });
 
     //pet_amt
     $("input#pet-amount").on("keyup mouseup", function() {
-        petAmount = parseInt($(this).val());
+        petAmount = $(this).val();
     });
 
     //Size - Small
     $("input#small").on("change", function() {
-        isSmall = $(this).is(":checked") ? parseInt($("input[name=small]:checked", "form.signup").val()) : (isSmall = 0);
+        isSmall = $(this).is(":checked") ? $("input[name=small]:checked", "form.signup").val() : (isSmall = 0);
     });
 
     //Size - Medium
     $("input#medium").on("change", function() {
-        isMedium = $(this).is(":checked") ? parseInt($("input[name=med]:checked", "form.signup").val()) : (isMedium = 0);
+        isMedium = $(this).is(":checked") ? $("input[name=med]:checked", "form.signup").val() : (isMedium = 0);
     });
 
     //Size - Large
     $("input#large").on("change", function() {
-        isLarge = $(this).is(":checked") ? parseInt($("input[name=large]:checked", "form.signup").val()) : (isLarge = 0);
+        isLarge = $(this).is(":checked") ? $("input[name=large]:checked", "form.signup").val() : (isLarge = 0);
     });
 
     //Size - Giant
     $("input#giant").on("change", function() {
-        isGiant = $(this).is(":checked") ? parseInt($("input[name=giant]:checked", "form.signup").val()) : (isGiant = 0);
+        isGiant = $(this).is(":checked") ? $("input[name=giant]:checked", "form.signup").val() : (isGiant = 0);
     });
 
     //Size - Availability
     $("input#availability").on("change", function() {
-        isAvailable = $(this).is(":checked") ? parseInt($("input[name=availabile]:checked", "form.signup").val()) : (isAvailable = 0);
+        isAvailable = $(this).is(":checked") ? $("input[name=availabile]:checked", "form.signup").val() : (isAvailable = 0);
     });
 
 
     // eslint-disable-next-line prefer-arrow-callback
-    $("form.signup").on("submit", function(event) {
+    $("form.signup").on("submit", (event) => {
         //Prevent page reload when submitting form
         event.preventDefault();
 
