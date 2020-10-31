@@ -62,6 +62,20 @@ module.exports = function(app) {
             .catch(error => console.log(error));
     });
 
+    app.post("/result", (req,res) => {
+        req.body.available = true;
+        console.log(`Request Body: ${req.body}`);
+        db.Host.findAll({
+            attributes: ["first_name", "last_name", "email", "phone", "city","bio"],
+            where: req.body
+        })
+            .then(results => {
+                console.log(`Query Results: ${results[0]}`);
+                res.render("result",{data: results.dataValues});
+            })
+            .catch(error => console.log(error));
+    });
+
     // Here we've add our isAuthenticated middleware to this route.
     // If the hosts who is not logged in tries to access this route they will be redirected to the signup page
     // app.get("/profile", isAuthenticated, (req, res) => {

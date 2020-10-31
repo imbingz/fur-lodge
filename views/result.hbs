@@ -8,9 +8,9 @@
 
 <div class="">
     <ul>
-        {{#each}}
+        {{#each data}}
         <li>
-            {{ Host }}
+            {{ data.dataValues.first_name }}
             <button type="submit" class="">Book</button>
         </li>
         {{/each}}
