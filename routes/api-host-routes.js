@@ -17,11 +17,33 @@ module.exports = function (app) {
     });
 
     app.get("/api/host/:id", (req,res) => {
-        db.Host.findAll({
-            where: req.params.id,
+        console.log(req.params.id);
+        db.Host.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: [
+                "first_name", 
+                "last_name", 
+                "email", 
+                "phone", 
+                "city",
+                "bio",
+                "is_pup",
+                "is_cat",
+                "rate",
+                "short_term",
+                "long_term",
+                "pet_amt",
+                "small",
+                "med",
+                "large",
+                "giant",
+                "available"
+            ],
             include: [db.Booking]
         })
-            .then(results => res.json(results))
+            .then(() => res.render("/profile"))
             .catch(error => console.log(error));
     });
 

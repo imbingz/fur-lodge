@@ -8,18 +8,20 @@ module.exports = {
         password: key.password,
         database: key.database,
         host: key.host,
-        port: "3307",
+        port: key.port,
         dialect: "mysql"
          
     },
-    // test: {
-    //     username: key.username,
-    //     password: key.password,
-    //     database: key.database,
-    //     host: key.host,
-    //     port: "3307",
-    //     dialect: "mysql"
-    // },
+
+    test: {
+        username: key.username,
+        password: key.password,
+        database: key.database,
+        host: key.host,
+        port: key.port,
+        // port: "3307",
+        dialect: "mysql"
+    },
     production: {
         // eslint-disable-next-line camelcase
         use_env_variable: "JAWSDB_URL",
