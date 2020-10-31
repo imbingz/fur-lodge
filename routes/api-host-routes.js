@@ -4,11 +4,11 @@ const db = require("../models");
 
 module.exports = function (app) {
 
-    app.post("/api/host", (req, res) => {
-        db.Host.create(req.body)
-            .then(results => res.json(results))
-            .catch(error => console.log(error));
-    });
+    // app.post("/api/host", (req, res) => {
+    //     db.Host.create(req.body)
+    //         .then(results => res.json(results))
+    //         .catch(error => console.log(error));
+    // });
 
     app.get("/api/host", (req,res) => {
         db.Host.findAll({
