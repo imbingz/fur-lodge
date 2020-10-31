@@ -1,3 +1,10 @@
+/* Styles for the whole body */
+body {
+    background-image: url("/assets/images/furlodge-background.jpg");
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
 /* Navbar styles */
 .top-bar, .top-bar ul {
     background: white;
@@ -164,11 +171,50 @@ a.button.primary.expanded {
     }
 }
 
-/* Styles for the whole body */
-body {
-    background-image: url("/assets/images/furlodge-background.jpg");
+/* Styles for Login Form */
+main.card.grid-container.grid-x.align-center.login {
+    width: 95%;
+    max-width: 750px;
+    align-self: center;
+    margin-top: 125px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+h3.find-cozy {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+input.email {
+    margin: 0 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+input.password {
+    margin: 0 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+a.button.primary.expanded {
+    max-width: 75%;
+    margin: 25px auto;
+    border-radius: 5px 5px 5px 5px;
+}
+
+/* Media query for responsive design */
+@media only screen and (max-width: 550px) {
+    main.card.grid-container.grid-x.align-center.login {
+        margin-top: 75px;
+    }
+    
+    input.email {
+        width: 95%;
+    }
+
+    input.password {
+        width: 95%;
+    }
 }
 
 /*/ Styles added by Christian /*/
