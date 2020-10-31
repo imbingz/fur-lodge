@@ -4,9 +4,9 @@ const key = require("../key.js");
 //Export config
 module.exports = {
     development: {
-        username: "root",
-        password: "TiUP&c4tY2",
-        database: "furlodge_db",
+        username: key.username,
+        password: key.password,
+        database: key.database,
         host: key.host,
         port: key.port,
         dialect: "mysql"
