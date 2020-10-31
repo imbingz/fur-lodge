@@ -1,3 +1,5 @@
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+const passport = require("../config/passport");
 const db = require("../models");
 
 module.exports = function (app) {
@@ -16,11 +18,11 @@ module.exports = function (app) {
             .catch(error => console.log(error));
     });
 
-    app.get("/api/host/:id", (req,res) => {
-        console.log(req.params.id);
+    app.get("/profile", isAuthenticated, (req,res) => {
+        console.log(req.user);
         db.Host.findOne({
             where: {
-                id: req.params.id
+                id: req.user.id
             },
             attributes: [
                 "first_name", 
@@ -43,7 +45,10 @@ module.exports = function (app) {
             ],
             include: [db.Booking]
         })
-            .then(() => res.render("/profile"))
+            .then((results) => {
+                console.log(results);
+                res.render("profile", {name: results.first_name});
+            })
             .catch(error => console.log(error));
     });
 
@@ -61,9 +66,15 @@ module.exports = function (app) {
     //Host signup route handler - ***** need to change res.redirect path later 
     app.post("/api/signup", (req, res) => {
         db.Host.create(req.body)
-            .then(() => res.redirect("/profile"))
+            .then(() => res.redirect(307, "/api/signin"))
             .catch((err) => {
                 res.status(401).json(err);
             });
+    });
+
+    app.post("/api/signin", passport.authenticate("local"), (req, res) => {
+        console.log("requser:", req.user);
+        res.json(req.user);
+        
     });
 };
