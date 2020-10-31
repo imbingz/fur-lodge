@@ -1,6 +1,7 @@
 // Requiring our custom middleware for checking if a user is logged in
 // eslint-disable-next-line no-unused-vars
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const db = require("../models");
 
 module.exports = function(app) {
     app.get("/", (req, res) => {
@@ -27,6 +28,40 @@ module.exports = function(app) {
         res.render("login");
     });
 
+    app.get("/profile", isAuthenticated, (req,res) => {
+        console.log(req.user);
+        db.Host.findOne({
+            where: {
+                id: req.user.id
+            },
+            attributes: [
+                "first_name", 
+                "last_name", 
+                "email", 
+                "phone", 
+                "city",
+                "bio",
+                "is_pup",
+                "is_cat",
+                "rate",
+                "short_term",
+                "long_term",
+                "pet_amt",
+                "small",
+                "med",
+                "large",
+                "giant",
+                "available"
+            ],
+            include: [db.Booking]
+        })
+            .then((results) => {
+                console.log(results);
+                res.render("profile", {name: results.first_name});
+            })
+            .catch(error => console.log(error));
+    });
+
     // Here we've add our isAuthenticated middleware to this route.
     // If the hosts who is not logged in tries to access this route they will be redirected to the signup page
     // app.get("/profile", isAuthenticated, (req, res) => {
@@ -34,8 +69,8 @@ module.exports = function(app) {
     // });
 
     // ***** use this without isAuthenticated middleware temporarily
-    app.get("/profile", (req, res) => {
-        res.render("profile");
-    });
+    // app.get("/profile", (req, res) => {
+    //     res.render("profile");
+    // });
 
 };

@@ -121,7 +121,7 @@ $(() => {
 
     //A POST request sending the host Signup Email, Password to Route handler
     function signupHost(email, password, first_name, last_name, phone, city, bio, is_pup, is_cat, rate, short_term, long_term, pet_amt, small, med, large, giant, available ) {
-        $.post("api/signup", {
+        $.post("/api/signup", {
             email,
             password,
             first_name,
@@ -143,7 +143,7 @@ $(() => {
         })
             .then((data) => {
                 // ****** Maybe have to change later
-                window.location.replace("/profile");
+                window.location.href = "/profile";
                 // console.log(data);   
             })
             .catch((err) => {
