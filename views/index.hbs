@@ -29,12 +29,12 @@
       {{!-- Choice for the type of care user is looking for. --}}
       <fieldset class="fieldset medium-6 cell">
         <legend>Type of care I am looking for...</legend>
-        <input type="radio" name="careType" value="" id="boardingCare" required>
+        <input type="radio" name="long_term" value="" id="long-term" required>
         <label class="care-choice-label" for="boardingCare">
           <i class="fas fa-suitcase"></i>
           Boarding
         </label>
-        <input type="radio" name="careType" value="" id="dayCare" required>
+        <input type="radio" name="short_term" value="" id="short-term" required>
         <label class="care-choice-label" for="dayCare">
           <i class="fas fa-cloud-sun"></i>
           Day Care
@@ -44,13 +44,13 @@
       {{!-- Choices for the size of pet user is looking for care for. --}}
       <fieldset class="fieldset cell">
         <legend>My Pet Size</legend>
-        <input id="small" type="checkbox">
+        <input name="small" id="small" type="checkbox">
         <label class="size-choice-label" for="small">Small (0-15lbs)</label>
-        <input id="medium" type="checkbox">
+        <input name="medium" id="medium" type="checkbox">
         <label class="size-choice-label" for="medium">Medium (15-40lbs)</label>
-        <input id="large" type="checkbox">
+        <input name="large" id="large" type="checkbox">
         <label class="size-choice-label" for="large">Large (40-100lbs)</label>
-        <input id="giant" type="checkbox">
+        <input name="giant" id="giant" type="checkbox">
         <label class="size-choice-label" for="giant">Giant (100+)</label>
       </fieldset>
       <button type="submit" class="button primary expanded cell findhost-btn" href="#">Search for Cozy Care!</button>
