@@ -1,30 +1,38 @@
-<!-- Psuedo: User search form.  --> 
+<!-- Psuedo: User search form.  -->
 
-<h1>Find cozy care for your beloved canine!</h1>
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <div class="small-7 cell">
 
-<!-- Let's confirm as a group the buttons and forms we wish to have on the landing page before I submit a framework -->  
+      <h1>Find cozy care for your beloved canine!</h1>
 
-<!-- Length of stay buttons -->
-<div class="primary button-group">
-  <a class="">Short Term</a>
-  <a class="">Extended stay</a>
+      <!-- Let's confirm as a group the buttons and forms we wish to have on the landing page before I submit a framework -->
+
+      <!-- Length of stay buttons -->
+      <div class="primary button-group">
+        <a class="button">Short Term</a>
+        <a class="button">Extended stay</a>
+      </div>
+
+      <!-- Location Form -->
+      <div class="input-group">
+        <label for="location">Location: </label>
+        <input type="location" id="location" name="location" class="input-group-field" required>
+      </div>
+
+      <!-- Dog Size Buttons -->
+
+      <div class="primary button-group">
+        <a class="button">Small</a>
+        <a class="button">Medium</a>
+        <a class="button">Large</a>
+        <a class="button">Giant</a>
+      </div>
+
+      <!-- Submit form button -->
+
+      <button class="button findhost-btn">Find Your Host!</button>
+
+    </div>
+  </div>
 </div>
-
-<!-- Location Form -->
-<label>
-  Location
-  <textarea placeholder="City Name"></textarea>
-</label>
-
-<!-- Dog Size Buttons -->
-
-<div class="primary button-group">
-  <a class="">Small</a>
-  <a class="">Medium</a>
-  <a class="">Large</a>
-  <a class="">Giant</a>
-</div>
-
-<!-- Submit form button --> 
-
-<a class="button expanded" href="#">Submit</a>

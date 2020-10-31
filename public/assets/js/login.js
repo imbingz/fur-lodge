@@ -1,47 +1,41 @@
-
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 //Wait for the document to load
-$(() => {
-    // eslint-disable-next-line prefer-arrow-callback
-    $("form.login").on("submit", (event) => {
-        //Prevent page reload when submitting form
+$(document).ready(() => {
+    const loginForm = $("form.login");
+    const emailInput = $("input#email-input");
+    const passwordInput = $("input#password-input");
+
+    // When the form is submitted, we validate there's an email and password entered
+    loginForm.on("submit", (event) => {
         event.preventDefault();
+        const userData = {
+            email: emailInput.val().trim(),
+            password: passwordInput.val().trim(),
+        };
 
-        //Check email and password fields and make sure they are not empty when the form is submitted
-        if (email && password) {
-        //Get hostData obj
-            const hostData = {
-                email: $("#email").val().trim(),
-                password: $("#password").val().trim()
-            };
-
-            const {email, password} = hostData;
-
-            //Call loginHost function 
-            loginHost(email, password);
-
-            //Empty input fields
-            $("#email").val("");
-            $("#password").val("");
-        } else {
-        	alert("You must enter a user name and password.");
+        if (!userData.email || !userData.password) {
+            return;
         }
+
+        // If we have an email and password we run the loginUser function and clear the form
+        loginUser(userData.email, userData.password);
+        emailInput.val("");
+        passwordInput.val("");
     });
 
-    //A GET request checking the host Signup Email, Password 
-    function loginHost(email, password) {
-        $.get("api/host/", {
-            email,
-            password
+    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+    function loginUser(email, password) {
+        $.get("/api/host", {
+            email: email,
+            password: password,
         })
-            .then((data) => {
-                // ****** Maybe have to change later
-                window.location.replace("/profile");
-                // console.log(data);   
+            .then(() => {
+                window.location.href = "/profile";
+                // If there's an error, log the error
             })
             .catch((err) => {
-                console.log((err.responseJSON));
+                console.log(err);
             });
     }
-}); //========> END
+});
