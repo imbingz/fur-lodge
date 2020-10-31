@@ -62,16 +62,16 @@ module.exports = function(app) {
             .catch(error => console.log(error));
     });
 
-    app.post("/result", (req,res) => {
-        req.body.available = true;
+    app.get("/result", (req,res) => {
+        // req.body.available = true;
         console.log(`Request Body: ${req.body}`);
         db.Host.findAll({
             attributes: ["first_name", "last_name", "email", "phone", "city","bio"],
             where: req.body
         })
             .then(results => {
-                console.log(`Query Results: ${results[0]}`);
-                res.render("result",{data: results.dataValues});
+                console.log(`Query Results: ${results}`);
+                res.render("result",{data: results});
             })
             .catch(error => console.log(error));
     });

@@ -11,7 +11,7 @@ $(() => {
     const cityInput = $("input#city-input");
 
     //Set variables getting from input events for hostData
-    let isDog, isCat, isShortTerm, isLongTerm, petAmount, isSmall, isMedium, isLarge, isGiant;
+    let city, isDog, isCat, isShortTerm, isLongTerm, petAmount, isSmall, isMedium, isLarge, isGiant;
 
     //city
     $("input#dog").on("change", function() {
@@ -71,44 +71,44 @@ $(() => {
         
         console.log($("#dogCare").val());
 
-        if (city) {
+        // if (city) {
 
-            const userData = {
-                city: cityInput.val().trim(),
-                is_pup: isDog ? isDog : 0, 
-                is_cat: isCat ? isCat : 0,
-                short_term: isShortTerm ? isShortTerm : 0,
-                long_term: isLongTerm ? isLongTerm : 0,
-                pet_amt: petAmount,
-                small: isSmall ? isSmall : 0,
-                med: isMedium ? isMedium : 0,
-                large: isLarge ? isLarge : 0,
-                giant: isGiant ? isGiant : 0
-            }; 
+        const userData = {
+            city: cityInput.val().trim(),
+            is_pup: isDog ? isDog : 0, 
+            is_cat: isCat ? isCat : 0,
+            short_term: isShortTerm ? isShortTerm : 0,
+            long_term: isLongTerm ? isLongTerm : 0,
+            pet_amt: petAmount,
+            small: isSmall ? isSmall : 0,
+            med: isMedium ? isMedium : 0,
+            large: isLarge ? isLarge : 0,
+            giant: isGiant ? isGiant : 0
+        }; 
 
-            const {city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = hostData;
+        const {city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = userData;
 
-            //Call signupHost function 
-            seekHost(city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant);
+        //Call signupHost function 
+        seekHost(city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant);
 
-            //Empty input fields
-            $("#city").val("");
-            $("#dog").prop("checked", false);
-            $("#cat").prop("checked", false);
-            $("#short-term").prop("checked", false);
-            $("#long-term").prop("checked", false);
-            $("#pet-amount").val("");
-            $("#small").prop("checked", false);
-            $("#medium").prop("checked", false);
-            $("#large").prop("checked", false);
-            $("#giant").prop("checked", false);
-        } else {
-        	alert("City cannot be empty.");
-        }
+        //Empty input fields
+        $("#city-input").val("");
+        $("#dog").prop("checked", false);
+        $("#cat").prop("checked", false);
+        $("#short-term").prop("checked", false);
+        $("#long-term").prop("checked", false);
+        $("#pet-amount").val("");
+        $("#small").prop("checked", false);
+        $("#medium").prop("checked", false);
+        $("#large").prop("checked", false);
+        $("#giant").prop("checked", false);
+        // } else {
+        // 	alert("City cannot be empty.");
+        // }
     });
 
-    function signupHost(city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant) {
-        $.post("/api/signup", {
+    function seekHost(city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant) {
+        $.post("/api/result", {
             city,
             bio,
             is_pup,

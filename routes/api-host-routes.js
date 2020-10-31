@@ -44,4 +44,10 @@ module.exports = function (app) {
         res.json(req.user);
         
     });
+
+    //Host signup route handler - ***** need to change res.redirect path later 
+    app.post("/api/result", (req, res) => {
+        res.redirect(307, "/result");
+        if (err) {throw err;}
+    });
 };
