@@ -29,4 +29,10 @@ module.exports = function (app) {
             .then(results => res.json(results))
             .catch(error => console.log(error));
     });
+
+    app.post("/api/signup", (req, res) => {
+        db.Host.create(req.body).then((results) => console.log(res.json(results))).catch((err) => {
+            res.status(401).json(err);
+        });
+    });
 };
