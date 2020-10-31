@@ -12,6 +12,7 @@ module.exports = {
         dialect: "mysql"
          
     },
+
     test: {
         username: key.username,
         password: key.password,

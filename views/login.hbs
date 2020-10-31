@@ -1,25 +1,33 @@
 <!-- Psuedo: Form to enter E-mail/Password . Alert if password fail. Redirect to profile.hbs upon successful login. -->
 
-<form>
-  <div class="form-icons">
-    <h4>Login to Your Host Account</h4>
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <div class="small-7 cell">
 
-    <div class="input-group">
-      <span class="input-group-label">
-        <i class="fa fa-envelope"></i>
-      </span>
-      <input class="input-group-field" type="text" placeholder="Email">
+      <form class="login">
+        <div class="form-icons">
+          <h4>Sign In To Your Fur-Lodge Account!</h4>
+
+          <!--   Email   -->
+          <div class="input-group">
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" class="input-group-field" required>
+          </div>
+
+
+          <!--   Password   -->
+          <div class="input-group">
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password" class="input-group-field" required>
+          </div>
+
+
+          <button class="button login-btn">Login</button>
+      </form>
+
+
     </div>
 
-    <div class="input-group">
-      <span class="input-group-label">
-        <i class="fa fa-key"></i>
-      </span>
-      <input class="input-group-field" type="text" placeholder="Password">
-    </div>
   </div>
 
-  <button class="button expanded">Login</button>
-</form>
-
-
+</div>
