@@ -1,41 +1,56 @@
 <!-- Psuedo: User search form.  -->
 
-<div class="grid-container">
-  <div class="grid-x grid-margin-x">
-    <div class="small-7 cell">
+{{!-- User Search Form --}}
+<main class="card grid-container grid-x align-center">
+  <h3 class="find-cozy">Find Cozy Comfort For Your Pet While You're Away!</h3>
+  <form id="search-form">
+    {{!-- Input for city where user is lookin for care. --}}
+    <div class="grid-container grid-x grid-padding-x">
+      <label class="cell">I am looking for care in...
+        <input class="city-input" type="text" placeholder="City">
+      </label>
+      {{!-- Choices for type of pet user is looking for care for. --}}
+      <fieldset class="fieldset medium-6 cell">
+        <legend>I am looking for care for my...</legend>
+        <input type="radio" name="petType" value="" id="dogCare" required>
+        <label class="pet-choice-label" for="dogCare">
+          <i class="fas fa-dog"></i>
+          Dog
+        </label>
+        <input type="radio" name="petType" value="" id="catCare" required>
+        <label class="pet-choice-label" for="catCare">
+          <i class="fas fa-cat"></i>
+          Cat
+        </label>
+      </fieldset>
+      {{!-- Choice for the type of care user is looking for. --}}
+      <fieldset class="fieldset medium-6 cell">
+        <legend>Type of care I am looking for...</legend>
+        <input type="radio" name="careType" value="" id="boardingCare" required>
+        <label class="care-choice-label" for="boardingCare">
+          <i class="fas fa-suitcase"></i>
+          Boarding
+        </label>
+        <input type="radio" name="careType" value="" id="dayCare" required>
+        <label class="care-choice-label" for="dayCare">
+          <i class="fas fa-cloud-sun"></i>
+          Day Care
+        </label>
+      </fieldset>
+      {{!-- Choices for the size of pet user is looking for care for. --}}
+      <fieldset class="fieldset cell">
+        <legend>My Pet Size</legend>
+        <input id="small" type="checkbox">
+        <label class="size-choice-label" for="small">Small (0-15lbs)</label>
+        <input id="medium" type="checkbox">
+        <label class="size-choice-label" for="medium">Medium (15-40lbs)</label>
+        <input id="large" type="checkbox">
+        <label class="size-choice-label" for="large">Large (40-100lbs)</label>
+        <input id="giant" type="checkbox">
+        <label class="size-choice-label" for="giant">Giant (100+)</label>
+      </fieldset>
+      <a class="button primary expanded cell findhost-btn" href="#">Search for Cozy Care!</a>
 
-      <form class="host-form">
-        <div class="form-icons">
-          <h1>Find cozy care for your beloved canine!</h1>
-
-          <!-- Let's confirm as a group the buttons and forms we wish to have on the landing page before I submit a framework -->
-
-          <!-- Length of stay buttons -->
-          <div class="primary button-group">
-            <a class="button">Short Term</a>
-            <a class="button">Extended stay</a>
-          </div>
-
-          <!-- Location Form -->
-          <div class="input-group">
-            <label for="location">Location: </label>
-            <input type="location" id="location" name="location" class="input-group-field" required>
-          </div>
-
-          <!-- Dog Size Buttons -->
-
-          <div class="primary button-group">
-            <a class="button">Small</a>
-            <a class="button">Medium</a>
-            <a class="button">Large</a>
-            <a class="button">Giant</a>
-          </div>
-
-          <!-- Submit form button -->
-
-          <button class="button findhost-btn">Find Your Host!</button>
-        </div>
-      </form>
     </div>
-  </div>
-</div>
+  </form>
+</main>

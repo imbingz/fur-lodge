@@ -7,11 +7,16 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{!-- <title> Fur-Lodge </title> --}}
     <title>FurLodge</title>
+
     <!-- Compressed Foundation CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
+    {{!-- Font Awesome --}}
+    <script src="https://kit.fontawesome.com/fc4c13e3cb.js" crossorigin="anonymous"></script>
+
+    {{!-- Personal Style Sheet --}}
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
@@ -20,8 +25,8 @@
     <nav class="top-bar" id="mainNavigation">
         <aside class="top-bar-left">
             <h1>
-                <a href="#">
-                    {{!-- <img id="furlodge-logo" src="./assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy"> --}}
+                <a href="/">
+                    <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
                 </a>
             </h1>
         </aside>
@@ -30,8 +35,8 @@
                 <li>
                     <a class="host-dropdown">Host</a>
                     <ul class="menu">
-                        <li><a href="#">Become Host</a></li>
-                        <li><a href="#">Login</a></li>
+                        <li><a href="/signup">Become Host</a></li>
+                        <li><a href="/login">Login</a></li>
                     </ul>
         </aside>
     </nav>
