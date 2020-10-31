@@ -6,7 +6,6 @@ $(() => {
     let isDog, isCat, rateValue, isShortTerm, isLongTerm, petAmount, isSmall, isMedium, isLarge, isGiant, isAvailable;
 
     //is_pup
-
     $("input#dog").on("change", function() {
         isDog = $(this).is(":checked") ? $("input[name=dog]:checked", "form.signup").val() : (isDog = 0);
     });
@@ -93,10 +92,7 @@ $(() => {
 
             const { email, password, first_name, last_name, phone, city, bio, is_pup, is_cat, rate, short_term, long_term, pet_amt, small, med, large, giant, available } = hostData;
 
-            // ********* Delete later
-            console.log(email, password, first_name, last_name, phone, city, bio, is_pup, is_cat, rate, short_term, long_term, pet_amt, small, med, large, giant, available);
-
-            //Call signupHost if there are valid email and password
+            //Call signupHost function 
             signupHost(email, password, first_name, last_name, phone, city, bio, is_pup, is_cat, rate, short_term, long_term, pet_amt, small, med, large, giant, available);
 
             //Empty input fields
@@ -147,8 +143,8 @@ $(() => {
         })
             .then((data) => {
                 // ****** Maybe have to change later
-                // window.location.replace("/profile");
-                console.log(data);   
+                window.location.replace("/profile");
+                // console.log(data);   
             })
             .catch((err) => {
                 console.log((err.responseJSON));

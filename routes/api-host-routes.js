@@ -30,9 +30,12 @@ module.exports = function (app) {
             .catch(error => console.log(error));
     });
 
+    //Host signup route handler - ***** need to change res.redirect path later 
     app.post("/api/signup", (req, res) => {
-        db.Host.create(req.body).then((results) => console.log(res.json(results))).catch((err) => {
-            res.status(401).json(err);
-        });
+        db.Host.create(req.body)
+            .then(() => res.redirect("/profile"))
+            .catch((err) => {
+                res.status(401).json(err);
+            });
     });
 };
