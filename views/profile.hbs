@@ -31,9 +31,10 @@
 </div>
 
 <!-- Profile of seeker you are currently booked with --> 
-{{#unless host.Booking}}
+{{#if host.Booking}}
 
 <div class="">
+    <h2>Booking Information</h2>
     <ul>
         <li>Name: {{host.Booking.dataValues.first_name}} {{host.Booking.dataValues.last_name}} </li>
         <li>Email: {{host.Booking.dataValues.email}} </li>
@@ -50,4 +51,4 @@
         <li>Booking giant pets (100+lbs): {{host.Booking.dataValues.giant}} </li>
     </ul>
 </div>
-{{/unless}}
+{{/if}}
