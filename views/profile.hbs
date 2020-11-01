@@ -3,7 +3,9 @@
 {{!-- temporary h1 --}}
 
 <h1>Host Profile</h1>
-
+<div class="">
+    <button type="button" id="editProfile-btn" class="button primary cell" data-host={{host}}>Edit Profile</button>
+</div>
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
         <div class="small-8 cell">
@@ -33,22 +35,27 @@
 <!-- Profile of seeker you are currently booked with --> 
 {{#if host.Booking}}
 
-<div class="">
-    <h2>Booking Information</h2>
-    <ul>
-        <li>Name: {{host.Booking.dataValues.first_name}} {{host.Booking.dataValues.last_name}} </li>
-        <li>Email: {{host.Booking.dataValues.email}} </li>
-        <li>Phone: {{host.Booking.dataValues.phone}} </li>
-        <li>Booking Dogs: {{host.Booking.dataValues.is_pup}} </li>
-        <li>Booking Cats: {{host.Booking.dataValues.is_cat}} </li>
-        <li>Day Sitting: {{host.Booking.dataValues.short_term}} </li>
-        <li>Boarding: {{host.Booking.dataValues.long_term}} </li>
-        <li>Pet Amount: {{host.Booking.dataValues.pet_amt}} </li>
-        <li>Rate: ${{host.Booking.dataValues.rate}} </li>
-        <li>Booking small pets (0-15lbs): {{host.Booking.dataValues.small}} </li>
-        <li>Booking medium pets (16-40lbs): {{host.Booking.dataValues.med}} </li>
-        <li>Booking large pets (41-100lbs): {{host.Booking.dataValues.large}} </li>
-        <li>Booking giant pets (100+lbs): {{host.Booking.dataValues.giant}} </li>
-    </ul>
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="small-8 cell">
+            <h2>Booking Information</h2>
+            <ul>
+                <li>Name: {{host.Booking.dataValues.first_name}} {{host.Booking.dataValues.last_name}} </li>
+                <li>Email: {{host.Booking.dataValues.email}} </li>
+                <li>Phone: {{host.Booking.dataValues.phone}} </li>
+                <li>Booking Dogs: {{host.Booking.dataValues.is_pup}} </li>
+                <li>Booking Cats: {{host.Booking.dataValues.is_cat}} </li>
+                <li>Day Sitting: {{host.Booking.dataValues.short_term}} </li>
+                <li>Boarding: {{host.Booking.dataValues.long_term}} </li>
+                <li>Pet Amount: {{host.Booking.dataValues.pet_amt}} </li>
+                <li>Rate: ${{host.Booking.dataValues.rate}} </li>
+                <li>Booking small pets (0-15lbs): {{host.Booking.dataValues.small}} </li>
+                <li>Booking medium pets (16-40lbs): {{host.Booking.dataValues.med}} </li>
+                <li>Booking large pets (41-100lbs): {{host.Booking.dataValues.large}} </li>
+                <li>Booking giant pets (100+lbs): {{host.Booking.dataValues.giant}} </li>
+            </ul>
+        </div>
+    </div>
 </div>
 {{/if}}
+
