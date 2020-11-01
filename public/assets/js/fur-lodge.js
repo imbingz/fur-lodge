@@ -74,7 +74,7 @@ $(() => {
         // if (city) {
 
         const userData = {
-            city: cityInput.val().trim(),
+            city: cityInput.val().trim().toLowerCase(),
             is_pup: isDog ? isDog : 0, 
             is_cat: isCat ? isCat : 0,
             short_term: isShortTerm ? isShortTerm : 0,
@@ -86,10 +86,10 @@ $(() => {
             giant: isGiant ? isGiant : 0
         }; 
 
-        const {city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = userData;
+        // const {city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = userData;
 
         //Call signupHost function 
-        seekHost(city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant);
+        seekHost(userData);
 
         //Empty input fields
         $("#city-input").val("");
@@ -107,22 +107,12 @@ $(() => {
         // }
     });
 
-    function seekHost(city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant) {
-        $.post("/api/result", {
-            city,
-            bio,
-            is_pup,
-            is_cat,
-            short_term,
-            long_term,
-            pet_amt,
-            small,
-            med,
-            large,
-            giant,
-        })
+    function seekHost(userData) {
+        // console.log($.param(userData));
+        $.get("/result?"+ $.param(userData))
             .then((data) => {
                 // ****** Maybe have to change later
+ 
                 window.location.href = "/result";
                 // console.log(data);   
             })

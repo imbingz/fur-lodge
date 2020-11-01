@@ -1,18 +1,19 @@
 {!-- Psuedo: Render the results of a seeker's search query from index/landing page --}
 
-
-
 <!-- button in the available host's li box to book that specific host -->
 
 <h1>Results</h1>
-
 <div class="">
-    <ul>
-        {{#each data}}
-        <li>
-            {{ data.dataValues.first_name }}
-            <button type="submit" class="">Book</button>
-        </li>
-        {{/each}}
-    </ul>
+    {{#each data}}
+    <p>
+        <ul>
+            <li>{{this.dataValues.first_name}} {{this.dataValues.last_name}}</li>
+            <li>{{this.dataValues.email}}</li>
+            <li>{{this.dataValues.phone}}</li>    
+            <li>{{this.dataValues.city}}</li>    
+            <li>{{this.dataValues.bio}}</li>    
+        </ul>
+        <button type="submit" id="{{this.dataValues.id}}" class="">Book</button>
+    </p>
+    {{/each}}
 </div>
