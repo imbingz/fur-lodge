@@ -74,7 +74,7 @@ $(() => {
         // if (city) {
 
         const userData = {
-            city: cityInput.val().trim(),
+            city: cityInput.val().trim().toLowerCase(),
             is_pup: isDog ? isDog : 0, 
             is_cat: isCat ? isCat : 0,
             short_term: isShortTerm ? isShortTerm : 0,

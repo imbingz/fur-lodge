@@ -75,7 +75,7 @@ $(() => {
                 first_name: $("#first-name").val().trim(),
                 last_name: $("#last-name").val().trim(),
                 phone: $("#phone").val().trim(),
-                city: $("#city").val().trim(),
+                city: $("#city").val().trim().toLowerCase(),
                 bio: $("#bio").val().trim(),
                 is_pup: isDog ? isDog : 0,
                 is_cat: isCat ? isCat : 0,
