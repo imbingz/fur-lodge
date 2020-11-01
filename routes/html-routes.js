@@ -4,6 +4,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 const db = require("../models");
 
 module.exports = function(app) {
+    // Landing Page - Search Form 
     app.get("/", (req, res) => {
     // If the hosts already has an account send host to host-profile page
         if (req.user) {
@@ -12,22 +13,31 @@ module.exports = function(app) {
         res.render("index");
     });
 
+    //Signup Form 
     app.get("/signup", (req, res) => {
-    // If the hosts already has an account send host to host-profile page
         if (req.user) {
             res.render("profile");
         }
         res.render("signup");
     });
 
+    //Login Form
     app.get("/login", (req, res) => {
-    // 	// If the hosts already has an account send them to the host-profile page
         if (req.user) {
             res.render("profile");
         }
         res.render("login");
     });
 
+    // Edit Host Profile Form
+    app.get("/account", (req, res) => {
+        if (req.user) {
+            res.render("account");
+        }
+        res.render("index");
+    });
+
+    //Render Host Profile Page
     app.get("/profile", isAuthenticated, (req,res) => {
         console.log(req.user);
         db.Host.findOne({
@@ -62,6 +72,7 @@ module.exports = function(app) {
             .catch(error => console.log(error));
     });
 
+    // Render Search Result Page
     app.get("/result", (req,res) => {
         // req.body.available = true;
         console.log(`Request Body: ${req.body}`);
