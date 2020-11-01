@@ -1,8 +1,9 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 //Wait for the document to load
+
 $(() => {
- 
+
     // When the editProfile Button is clicked, we validate 
     $("#editProfile-btn").on("click", function (event) {
         event.preventDefault();
