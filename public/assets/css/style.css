@@ -154,7 +154,7 @@ main.card.grid-container.grid-x.align-center.login {
 }
 
 /* Styles for signup form */
-textarea.bio {
+textarea.form-input {
     margin: 0 5px;
     border-radius: 5px 5px 5px 5px;
 }
