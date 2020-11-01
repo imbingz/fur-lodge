@@ -63,14 +63,13 @@ module.exports = function(app) {
     });
 
     app.get("/result", (req,res) => {
-        // req.body.available = true;
-        console.log(`Request Body: ${req.body}`);
+        console.log(req.query);
         db.Host.findAll({
-            attributes: ["first_name", "last_name", "email", "phone", "city","bio"],
-            where: req.body
+            attributes: ["id","first_name", "last_name", "email", "phone", "city","bio"],
+            where: req.query
         })
             .then(results => {
-                console.log(`Query Results: ${results}`);
+                console.log(results[0]);
                 res.render("result",{data: results});
             })
             .catch(error => console.log(error));
