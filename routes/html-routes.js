@@ -86,6 +86,12 @@ module.exports = function(app) {
             .catch(error => console.log(error));
     });
 
+    // Route for logging host out
+    app.get("/logout", (req, res) => {
+        req.logout();
+        res.redirect("/");
+    });
+
     // Here we've add our isAuthenticated middleware to this route.
     // If the hosts who is not logged in tries to access this route they will be redirected to the signup page
     // app.get("/profile", isAuthenticated, (req, res) => {

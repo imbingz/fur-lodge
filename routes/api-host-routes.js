@@ -42,9 +42,22 @@ module.exports = function (app) {
 
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
         res.json(req.user);
-        
     });
 
+    // PUT route for updating host profile
+    app.put("/api/profile", (req, res) => {
+        console.log(req.body.id);
+        
+        db.Host.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then((results) => {
+            res.json(results);
+        });
+    });
     //Host signup route handler - ***** need to change res.redirect path later 
     // app.post("/api/result", (req, res) => {
     //     res.redirect(307, "/result");
