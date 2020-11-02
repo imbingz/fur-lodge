@@ -3,14 +3,119 @@
 {{!-- temporary h1 --}}
 
 <h1>Host Profile</h1>
-<div class="">
-    <button type="button" id="editProfile-btn" class="button primary cell" data-host={{host}}>Edit Profile</button>
+
+{{!-- Edit Profile Modal Starts Here --}}
+<div class="reveal" id="exampleModal1" data-reveal>
+    <form class="editProfile">
+        <div class="grid-container grid-x grid-padding-x">
+            {{!-- Email - leave it out for now due to authentication --}}
+            {{!-- <label class="medium-6 cell">Email:
+                <input type="email" id="email" name="email" class="form-input input-group-field" value="{{host.email}}">
+            </label>  --}}
+            {{!-- Password - leave it out for now due to authentication --}}
+            {{!-- <label class="medium-6 cell">Password:
+                <input type="password" id="password" name="password" class="form-input input-group-field" required>
+            </label> --}}
+            {{!-- First Name --}}
+            <label class="medium-6 cell">First Name:
+                <input type="text" id="first-name" name="first_name" class="form-input input-group-field" value="{{host.first_name}}">
+            </label>
+            {{!-- Last Name --}}
+            <label class="medium-6 cell">Last Name:
+                <input type="text" id="last-name" name="last_name" class="form-input input-group-field" value="{{host.last_name}}">
+            </label>
+            {{!-- Phone Number --}}
+            <label class="medium-6 cell">Phone Number:
+                <input type="text" id="phone" name="phone" class="form-input input-group-field" pattern="[0-9]{10}"
+                    title="Phone number should be 10 digit number without separators." value="{{host.phone}}">
+            </label>
+            {{!-- City --}}
+            <label class="medium-6 cell">City:
+                <input type="text" id="city" name="city" class="form-input input-group-field" value="{{host.city}}"
+                    placeholder="City Name">
+            </label>
+            {{!-- Bio --}}
+            <label class="cell">
+                Bio:
+                <textarea type="text" id="bio" name="bio" class="form-input input-group-field" rows="4" cols="30"
+                    placeholder="Introduce yourself ... ">{{host.bio}}</textarea>
+            </label>
+            {{!-- Dogs/Cats --}}
+            <fieldset class="fieldset medium-6 cell">
+                <legend>Open to sit:</legend>
+                <input type="checkbox" name="dog" id="dog" value="1" aria-labelledby="pet-type dog" {{#if host.is_dog}} checked {{/if}}>
+                <label class="choice-label" for="dog">
+                    <i class="fas fa-dog"></i>
+                    Dog
+                </label>
+                <input type="checkbox" name="cat" id="cat" value="1" aria-labelledby="pet-type cat" {{#if host.is_cat}} checked {{/if}}>
+                <label class="choice-label" for="cat">
+                    <i class="fas fa-cat"></i>
+                    Cat
+                </label>
+            </fieldset>
+            {{!-- Short Term/Long Term --}}
+            <fieldset class="fieldset medium-6 cell">
+                <legend>Type of sitting:</legend>
+                <input type="checkbox" name="short_term" value="1" id="short-term" {{#if host.short_term}} checked {{/if}} aria-labelledby="sit-type day sitting">
+                <label class="choice-label" for="short_term">
+                    <i class="fas fa-cloud-sun"></i>
+                    Day Care
+                </label>
+                <input type="checkbox" name="long_term" value="1" id="long-term" {{#if host.long_term}} checked {{/if}} aria-labelledby="sit-type boarding">
+                <label class="choice-label" for="long_term">
+                    <i class="fas fa-suitcase"></i>
+                    Boarding
+                </label>
+            </fieldset>
+            {{!-- Pet Size --}}
+            <fieldset class="fieldset cell">
+                <legend>Pet Size Preference:</legend>
+                <input type="checkbox" name="small" value="1" id="small" {{#if host.small}} checked {{/if}} aria-labelledby="size-preference small">
+                <label class="size-choice-label" for="small">0-15lbs</label>
+                <input type="checkbox" name="med" value="1" id="medium" {{#if host.med}} checked {{/if}} aria-labelledby="size-preference medium">
+                <label class="size-choice-label" for="med">15-40lbs</label>
+                <input type="checkbox" name="large" value="1" id="large" {{#if host.large}} checked {{/if}} aria-labelledby="size-preference large">
+                <label class="size-choice-label" for="large">40-100lbs</label>
+                <input type="checkbox" name="giant" value="1" id="giant" {{#if host.giant}} checked {{/if}} aria-labelledby="size-preference giant">
+                <label class="size-choice-label" for="giant">100+</label>
+            </fieldset>
+            {{!-- Pet Amount --}}
+            <label class="medium-6 cell">
+                Maximum number of pets willing to sit: (1-5)
+                <input type="number" id="pet-amount" name="pet_amt" class="form-input input-group-field" value="{{host.pet_amt}}" min="1" max="5">
+            </label>
+            {{!-- Rate --}}
+            <label class="medium-6 cell">
+                Rate/Pet/Day: ($20-$100)
+                <input type="number" id="rate" name="rate" class="form-input input-group-field" value="{{host.rate}}" min="20"
+                    max="100">
+            </label>
+            {{!-- Availability --}}
+            <fieldset class="fieldset cell">
+                <input type="checkbox" id="availability" name="available" value="1" {{#if host.available}} checked {{/if}} class="input-group-field">
+                <label class="size-choice" for="availabe">I Am Available Immediately</label>
+            </fieldset>
+            {{!-- Profile Change Submit Button --}}
+            <button type="submit" class="button primary expanded cell" id="submit-btn" data-host="{{host.email}}">Submit</button>
+        </div>
+    </form>
+    {{!-- Close Modal Button --}}
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
+{{!-- Edit Profile Button --}}
+<p><button class="button" data-open="exampleModal1" id="editProfile-btn" data-host={{host}} >Edit Profile</button></p>
+
+{{!-- Modal Ends Here --}}
+
+{{!-- Host Profile Information  --}}
+
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
         <div class="small-8 cell">
             <ul>
-            {{!-- {{#each host}} --}}
                 <li>Name: {{host.first_name}} {{host.last_name}} </li>
                 <li>Email: {{host.email}} </li>
                 <li>Phone: {{host.phone}} </li>
@@ -19,6 +124,7 @@
                 <li>Host Dogs: {{host.is_pup}} </li>
                 <li>Host Cats: {{host.is_cat}} </li>
                 <li>Rate: ${{host.rate}} </li>
+                <li>Maximum number of pets willing to sit: {{host.pet_amt}} </li>
                 <li>Day Sitting: {{host.short_term}} </li>
                 <li>Boarding: {{host.long_term}} </li>
                 <li>Host small pets (0-15lbs): {{host.small}} </li>
@@ -26,15 +132,15 @@
                 <li>Host large pets (41-100lbs): {{host.large}} </li>
                 <li>Host giant pets (100+lbs): {{host.giant}} </li>
                 <li>You are available immediately: {{host.available}} </li>
-            {{!-- {{/each}} --}}
             </ul>
         </div>
     </div>
 </div>
 
-<!-- Profile of seeker you are currently booked with --> 
-{{#if host.Booking}}
 
+{{!--  Profile of seeker the host currently booked with  --}}
+
+{{#if host.Booking}}
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
         <div class="small-8 cell">

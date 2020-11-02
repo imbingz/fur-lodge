@@ -29,14 +29,13 @@
       </label>
       {{!-- Bio --}}
       <label class="cell">
-        Bio?
-        <textarea type="text" id="bio" name="bio" class="form-input input-group-field" rows="4" cols="30" required
-              placeholder="Introduce yourself ... "></textarea>
+        Bio:
+        <textarea type="text" id="bio" name="bio" class="form-input input-group-field" rows="4" cols="30" required placeholder="Introduce yourself ... "></textarea>
       </label>
       {{!-- Dogs/Cats --}}
       <fieldset class="fieldset medium-6 cell">
         <legend>Open to sit:</legend>
-        <input type="checkbox" name="dog" id="dog" value="1" aria-labelledby="pet-type dog">
+        <input data-min-required="1" type="checkbox" name="dog" id="dog" value="1" aria-labelledby="pet-type dog">
         <label class="choice-label" for="dog">
           <i class="fas fa-dog"></i>
           Dog
@@ -48,9 +47,9 @@
         </label>
       </fieldset>
       {{!-- Short Term/Long Term --}}
-      <fieldset class="fieldset medium-6 cell">
+      <fieldset  class="fieldset medium-6 cell">
         <legend>Type of sitting:</legend>
-        <input type="checkbox" name="short_term" value="1" id="short-term" aria-labelledby="sit-type day sitting">
+        <input data-min-required="1" type="checkbox" name="short_term" value="1"id="short-term" aria-labelledby="sit-type day sitting">
         <label class="choice-label" for="short_term">
           <i class="fas fa-cloud-sun"></i>
           Day Care
@@ -64,7 +63,7 @@
       {{!-- Pet Size --}}
       <fieldset class="fieldset cell">
         <legend>Pet Size Preference:</legend>
-        <input type="checkbox" name="small" value="1" id="small" aria-labelledby="size-preference small">
+        <input data-min-required="1" type="checkbox" name="small" value="1" id="small" aria-labelledby="size-preference small">
         <label class="size-choice-label" for="small">0-15lbs</label>
         <input type="checkbox" name="med" value="1" id="medium" aria-labelledby="size-preference medium">
         <label class="size-choice-label" for="med">15-40lbs</label>
@@ -76,20 +75,20 @@
       {{!-- Pet Amount --}}
       <label class="medium-6 cell">
         Maximum number of pets willing to sit: (1-5)
-        <input type="number" id="pet-amount" name="pet_amt" class="form-input input-group-field" value="1" min="1" max="5"
+        <input type="number" id="pet-amount" name="pet_amt" class="form-input input-group-field" value="0" min="1" max="5"
               required>
       </label>
       {{!-- Rate --}}
       <label class="medium-6 cell">
         Rate/Pet/Day: ($20-$100)
-        <input type="number" id="rate" name="rate" class="form-input input-group-field" value="20" min="20" max="100" required>
+        <input type="number" id="rate" name="rate" class="form-input input-group-field" value="0" min="20" max="100" required>
       </label>
       {{!-- Availability --}}
       <fieldset class="fieldset cell">
         <input type="checkbox" id="availability" name="available" value="1" class="input-group-field">
         <label class="size-choice" for="availabe">I Am Available Immediately</label>
       </fieldset>
-      <button class="button primary expanded cell signup-btn" href="#">Become Host</a>
+      <button class="button primary expanded cell signup-btn">Become Host</a>
     </div>
   </form>
 </main>
