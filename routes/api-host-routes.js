@@ -1,4 +1,5 @@
 // const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 const passport = require("../config/passport");
 const db = require("../models");
 
@@ -46,13 +47,13 @@ module.exports = function (app) {
 
     // PUT route for updating host profile
     app.put("/api/profile", (req, res) => {
-        console.log(req.body.id);
-        
+        console.log(`/api/profile Req.Body: ${req.body}`);
+        // console.log(req.user.id);
         db.Host.update(
             req.body,
             {
                 where: {
-                    id: req.body.id
+                    id: 101//req.user.id
                 }
             }).then((results) => {
             res.json(results);

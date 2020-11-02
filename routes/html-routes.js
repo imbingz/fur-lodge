@@ -66,7 +66,7 @@ module.exports = function(app) {
             include: [db.Booking]
         })
             .then((results) => {
-                console.log("datavalues",results.dataValues);
+                console.log("/profile results.dataValues",results.dataValues);
                 res.render("profile", {host: results.dataValues});
             })
             .catch(error => console.log(error));
