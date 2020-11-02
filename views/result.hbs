@@ -12,6 +12,7 @@
             <li>{{this.dataValues.city}}</li>    
             <li>{{this.dataValues.bio}}</li>    
         </ul>
+        {{!-- Modal open button --}}
         <button  data-open="exampleModal1" type="submit" data-id="{{this.dataValues.id}}" class="button">Book</button>
     {{/each}}
 </div>
@@ -34,7 +35,7 @@
             <input type="text" id="phone" name="phone" class="form-input input-group-field" pattern="[0-9]{10}"
                 title="Phone number should be 10 digit number without separators." required>
         </label>
-        {{!-- Profile Change Submit Button --}}
+        {{!-- Booking Submit Button --}}
         <button type="submit" class="button primary expanded cell" id="submitBooking-btn">Submit Booking</button>
     </form>
     {{!-- Close Modal Button --}}
