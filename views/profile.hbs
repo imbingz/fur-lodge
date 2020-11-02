@@ -43,12 +43,12 @@
             {{!-- Dogs/Cats --}}
             <fieldset class="fieldset medium-6 cell">
                 <legend>Open to sit:</legend>
-                <input type="checkbox" name="dog" id="dog" value="1" aria-labelledby="pet-type dog" {{#if host.is_dog}} checked {{/if}}>
+                <input type="checkbox" name="is_dog" id="dog" value="{{host.is_pup}}" aria-labelledby="pet-type dog" {{#if host.is_pup}} checked {{/if}}>
                 <label class="choice-label" for="dog">
                     <i class="fas fa-dog"></i>
                     Dog
                 </label>
-                <input type="checkbox" name="cat" id="cat" value="1" aria-labelledby="pet-type cat" {{#if host.is_cat}} checked {{/if}}>
+                <input type="checkbox" name="is_cat" id="cat" value="{{host.is_cat}}" aria-labelledby="pet-type cat" {{#if host.is_cat}} checked {{/if}}>
                 <label class="choice-label" for="cat">
                     <i class="fas fa-cat"></i>
                     Cat
@@ -57,12 +57,12 @@
             {{!-- Short Term/Long Term --}}
             <fieldset class="fieldset medium-6 cell">
                 <legend>Type of sitting:</legend>
-                <input type="checkbox" name="short_term" value="1" id="short-term" {{#if host.short_term}} checked {{/if}} aria-labelledby="sit-type day sitting">
+                <input type="checkbox" name="short_term" value="{{host.short_term}}" id="short-term" {{#if host.short_term}} checked {{/if}} aria-labelledby="sit-type day sitting">
                 <label class="choice-label" for="short_term">
                     <i class="fas fa-cloud-sun"></i>
                     Day Care
                 </label>
-                <input type="checkbox" name="long_term" value="1" id="long-term" {{#if host.long_term}} checked {{/if}} aria-labelledby="sit-type boarding">
+                <input type="checkbox" name="long_term" value="{{host.long_term}}" id="long-term" {{#if host.long_term}} checked {{/if}} aria-labelledby="sit-type boarding">
                 <label class="choice-label" for="long_term">
                     <i class="fas fa-suitcase"></i>
                     Boarding
@@ -71,13 +71,13 @@
             {{!-- Pet Size --}}
             <fieldset class="fieldset cell">
                 <legend>Pet Size Preference:</legend>
-                <input type="checkbox" name="small" value="1" id="small" {{#if host.small}} checked {{/if}} aria-labelledby="size-preference small">
+                <input type="checkbox" name="small" value="{{host.small}}" id="small" {{#if host.small}} checked {{/if}} aria-labelledby="size-preference small">
                 <label class="size-choice-label" for="small">0-15lbs</label>
-                <input type="checkbox" name="med" value="1" id="medium" {{#if host.med}} checked {{/if}} aria-labelledby="size-preference medium">
+                <input type="checkbox" name="med" value="{{host.med}}" id="medium" {{#if host.med}} checked {{/if}} aria-labelledby="size-preference medium">
                 <label class="size-choice-label" for="med">15-40lbs</label>
-                <input type="checkbox" name="large" value="1" id="large" {{#if host.large}} checked {{/if}} aria-labelledby="size-preference large">
+                <input type="checkbox" name="large" value="{{host.large}}" id="large" {{#if host.large}} checked {{/if}} aria-labelledby="size-preference large">
                 <label class="size-choice-label" for="large">40-100lbs</label>
-                <input type="checkbox" name="giant" value="1" id="giant" {{#if host.giant}} checked {{/if}} aria-labelledby="size-preference giant">
+                <input type="checkbox" name="giant" value="{{host.giant}}" id="giant" {{#if host.giant}} checked {{/if}} aria-labelledby="size-preference giant">
                 <label class="size-choice-label" for="giant">100+</label>
             </fieldset>
             {{!-- Pet Amount --}}
@@ -93,7 +93,7 @@
             </label>
             {{!-- Availability --}}
             <fieldset class="fieldset cell">
-                <input type="checkbox" id="availability" name="available" value="1" {{#if host.available}} checked {{/if}} class="input-group-field">
+                <input type="checkbox" id="availability" name="available" value="{{host.available}}" {{#if host.available}} checked {{/if}} class="input-group-field">
                 <label class="size-choice" for="availabe">I Am Available Immediately</label>
             </fieldset>
             {{!-- Profile Change Submit Button --}}
@@ -116,6 +116,8 @@
     <div class="grid-x grid-margin-x">
         <div class="small-8 cell">
             <ul>
+                
+                <li>ID: {{host.id}} </li>
                 <li>Name: {{host.first_name}} {{host.last_name}} </li>
                 <li>Email: {{host.email}} </li>
                 <li>Phone: {{host.phone}} </li>
