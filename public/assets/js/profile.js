@@ -46,7 +46,8 @@ $(() => {
             dataType: "json",  
             data: changeData,  
             success: function (data) {  
-                console.log(data);  
+                console.log(data);
+                window.location.href = "/profile";
             },  
             error: function () {  
                 console.log("Error in Operation");  
