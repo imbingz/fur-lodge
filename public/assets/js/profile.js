@@ -33,18 +33,28 @@ $(() => {
     //Submit button event listener, send PUT request with changeData.
     $("#submit-btn").on("click", getChanges);
 
-    function getChanges(event) {
+    function getChanges(event) {    
         event.preventDefault();
+        // console.log("button Click");
         // **** delete later 
         console.log(changeData);
        
         //Put Reqyest
-        $.put("api/profile", changeData)
-            .then((data) => console.log(data))
-            . catch(err => console.log(err));
+        $.ajax({  
+            url: "/api/profile",  
+            type: "PUT",  
+            dataType: "json",  
+            data: changeData,  
+            success: function (data) {  
+                console.log(data);  
+            },  
+            error: function () {  
+                console.log("Error in Operation");  
+            }  
+        // $.put("/api/profile", changeData)
+        //     .then((data) => console.log(data))
+        //     . catch(err => console.log(err));
+        });
     }
-  
-
-
 
 }); // =====> END
