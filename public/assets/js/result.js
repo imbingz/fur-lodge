@@ -1,16 +1,25 @@
-// $(()=> {
+/* eslint-disable camelcase */
+//Wait for page to finish loading
+$(() => {
+    //Add event listener 
+    $("form.booking").on("submit", $("#submitBooking-btn"), getSeekerInfo);
+  
+    //Get seeker info 
+    function getSeekerInfo(event) {
+        event.preventDefault();
+        console.log("booking submit");
+        const seekerInfo = {
+            first_name: $("#first-name").val().trim(),
+            last_name: $("#last-name").val().trim(),
+            email: $("#email").val().trim(),
+            phone: $("#phone").val().trim(),
+        };
+      
+        sendSeekerInfo(seekerInfo);
+    }
 
-//     const formData = {
-//         "small": false,
-//         "med": false,
-//         "large": false,
-//         "giant": false,
-//         "is_pup": false,
-//         "pet_amt": 1,
-//         "available": true
-//     };
-
-//     $.post("/api/result",formData)
-//         .then((res) => console.log(res))
-//         .catch((err) => console.log(err));
-// });
+    function sendSeekerInfo(seekerInfo) {
+        console.log(seekerInfo);
+        //ajax call
+    }
+});
