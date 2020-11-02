@@ -46,14 +46,14 @@ module.exports = function (app) {
     });
 
     // PUT route for updating host profile
-    app.put("/api/profile", (req, res) => {
+    app.put("/api/profile", isAuthenticated , (req, res) => {
         console.log(`/api/profile Req.Body: ${req.body}`);
-        // console.log(req.user.id);
+        console.log(req.user.id);
         db.Host.update(
             req.body,
             {
                 where: {
-                    id: 101//req.user.id
+                    id: req.user.id
                 }
             }).then((results) => {
             res.json(results);
