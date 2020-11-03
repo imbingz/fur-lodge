@@ -2,6 +2,7 @@
   <h3>Become FurLodge Host</h3>
   <form class="signup">
     <div class="grid-container grid-x grid-padding-x">
+     
       {{!-- Email --}}
       <label class="medium-6 cell">Email:
         <input type="email" id="email" name="email" class="form-input input-group-field" required>
@@ -31,11 +32,13 @@
       <label class="cell">
         Bio:
         <textarea type="text" id="bio" name="bio" class="form-input input-group-field" rows="4" cols="30" required placeholder="Introduce yourself ... "></textarea>
-      </label>
+      </label> 
+
+    
       {{!-- Dogs/Cats --}}
       <fieldset class="fieldset medium-6 cell">
         <legend>Open to sit:</legend>
-        <input data-min-required="1" type="checkbox" name="is_dog" id="dog" value="1" aria-labelledby="pet-type dog">
+        <input data-min-required="1" type="checkbox" name="is_pup" id="dog" value="1" aria-labelledby="pet-type dog">
         <label class="choice-label" for="dog">
           <i class="fas fa-dog"></i>
           Dog
@@ -72,6 +75,7 @@
         <input type="checkbox" name="giant" value="1" id="giant" aria-labelledby="size-preference giant">
         <label class="size-choice-label" for="giant">100+</label>
       </fieldset>
+    
       {{!-- Pet Amount --}}
       <label class="medium-6 cell">
         Maximum number of pets willing to sit: (1-5)
@@ -83,6 +87,7 @@
         Rate/Pet/Day: ($20-$100)
         <input type="number" id="rate" name="rate" class="form-input input-group-field" value="0" min="20" max="100" required>
       </label>
+    
       {{!-- Availability --}}
       <fieldset class="fieldset cell">
         <input type="checkbox" id="availability" name="available" value="1" class="input-group-field">

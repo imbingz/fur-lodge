@@ -74,13 +74,13 @@ module.exports = function(app) {
 
     // Render Search Result Page
     app.get("/result", (req,res) => {
-        console.log(req.query);
+        console.log("inside get/result ==> req.query", req.query);
         db.Host.findAll({
             attributes: ["id","first_name", "last_name", "email", "phone", "city","bio"],
             where: req.query
         })
             .then(results => {
-                console.log(results[0]);
+                // console.log("inside get/result ==> result[0]", results[0]);
                 res.render("result",{data: results});
             })
             .catch(error => console.log(error));

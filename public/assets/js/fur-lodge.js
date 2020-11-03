@@ -108,12 +108,12 @@ $(() => {
     });
 
     function seekHost(userData) {
-        // console.log($.param(userData));
+        console.log("$.param(userData)", $.param(userData));
         $.get("/result?"+ $.param(userData))
             .then((data) => {
                 // ****** Maybe have to change later
- 
-                window.location.href = "/result";
+                window.location.href = "/result?" + $.param(userData);
+                // window.location.href = "/result";
                 // console.log(data);   
             })
             .catch((err) => {

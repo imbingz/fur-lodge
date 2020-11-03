@@ -35,11 +35,19 @@
             <input type="text" id="phone" name="phone" class="form-input input-group-field" pattern="[0-9]{10}"
                 title="Phone number should be 10 digit number without separators." required>
         </label>
-        {{!-- Booking Submit Button --}}
-        <button type="submit" class="button primary expanded cell" id="submitBooking-btn">Submit Booking</button>
+        {{!-- Booking Submit Button and Nested Modal open button --}}
+        <button type="submit" class="button primary expanded cell" id="submitBooking-btn" data-open="exampleModal3">Submit Booking</button>
     </form>
     {{!-- Close Modal Button --}}
     <button class="button primary expanded cell" data-close aria-label="Close modal" type="button">
         Cancel
+    </button>
+</div>
+
+{{!-- Nested modal --}}
+<div class="reveal" id="exampleModal3" data-reveal>
+    <h2>Thank you for booking with <img src="/assets/images/furlodge-logo-2.png" alt="fur lodge"> </h2>
+    <button class="close-button" data-close aria-label="Close reveal" type="button">
+        <span aria-hidden="true">&times;</span>
     </button>
 </div>
