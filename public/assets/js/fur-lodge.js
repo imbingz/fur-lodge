@@ -10,57 +10,59 @@ $(() => {
     const searchForm = $("form#search");
     const cityInput = $("input#city-input");
 
+
     //Set variables getting from input events for hostData
     let city, isDog, isCat, isShortTerm, isLongTerm, petAmount, isSmall, isMedium, isLarge, isGiant;
 
     //city
-    $("input#dog").on("change", function() {
-        city = $(this).is(":checked") ? $("input[name=city]:checked", "form#signup").val() : (isDog = 0);
-    });
+    // $("input#dog").on("change", function() {
+    //     city = $(this).is(":checked") ? $("input[name=city]:checked", "form#signup").val() : (isDog = 0);
+    // });
     
     //is_pup
-    $("input#dog").on("change", function() {
-        isDog = $(this).is(":checked") ? $("input[name=dog]:checked", "form#search").val() : (isDog = 0);
+    $("#dogCare").on("change", function() {
+        isDog = $(this).is(":checked") ? true : false;
+        // isDog = $(this).is(":checked") ? $("input[name=dog]:checked", "form#search").val() : (isDog = 0);
     });
 
     //is_cat
-    $("input#cat").on("change", function() {
-        isCat = $(this).is(":checked") ? $("input[name=cat]:checked", "form#search").val() : (isCat = 0);
+    $("#catCare").on("change", function() {
+        isCat = $(this).is(":checked") ? true : false;
     });
 
     //short_term
-    $("input#short-term").on("change", function() {
-        isShortTerm = $(this).is(":checked") ? $("input[name=short_term]:checked", "form#search").val() : (isShortTerm = 0);
+    $("#short-term").on("change", function() {
+        isShortTerm = $(this).is(":checked") ? true : false;
     });
 
     //long_term
-    $("input#long-term").on("change", function() {
-        isLongTerm = $(this).is(":checked") ? $("input[name=long_term]:checked", "form#search").val() : (isLongTerm = 0);
+    $("#long-term").on("change", function() {
+        isLongTerm = $(this).is(":checked") ? true : false;
     });
 
     //pet_amt
-    $("input#pet-amount").on("keyup mouseup", function() {
+    $("#pet-amount").on("keyup mouseup", function() {
         petAmount = $(this).val();
     });
 
     //Size - Small
-    $("input#small").on("change", function() {
-        isSmall = $(this).is(":checked") ? $("input[name=small]:checked", "form#search").val() : (isSmall = 0);
+    $("#small").on("change", function() {
+        isSmall = $(this).is(":checked") ? true : false;
     });
 
     //Size - Medium
-    $("input#medium").on("change", function() {
-        isMedium = $(this).is(":checked") ? $("input[name=med]:checked", "form#search").val() : (isMedium = 0);
+    $("#medium").on("change", function() {
+        isMedium = $(this).is(":checked") ? true : false;
     });
 
     //Size - Large
-    $("input#large").on("change", function() {
-        isLarge = $(this).is(":checked") ? $("input[name=large]:checked", "form#search").val() : (isLarge = 0);
+    $("#large").on("change", function() {
+        isLarge = $(this).is(":checked") ? true : false;
     });
 
     //Size - Giant
-    $("input#giant").on("change", function() {
-        isGiant = $(this).is(":checked") ? $("input[name=giant]:checked", "form#search").val() : (isGiant = 0);
+    $("#giant").on("change", function() {
+        isGiant = $(this).is(":checked") ? true : false;
     });
 
 
@@ -68,22 +70,21 @@ $(() => {
     searchForm.on("submit", (event) => {
         event.preventDefault();
         console.log("working");
-        
-        console.log($("#dogCare").val());
 
         // if (city) {
 
         const userData = {
             city: cityInput.val().trim().toLowerCase(),
-            is_pup: isDog ? isDog : 0, 
-            is_cat: isCat ? isCat : 0,
-            short_term: isShortTerm ? isShortTerm : 0,
-            long_term: isLongTerm ? isLongTerm : 0,
+            // is_pup: isDog ? isDog : 0, 
+            is_pup: isDog ? isDog : false, 
+            is_cat: isCat ? isCat : false,
+            short_term: isShortTerm ? isShortTerm : false,
+            long_term: isLongTerm ? isLongTerm : false,
             pet_amt: petAmount,
-            small: isSmall ? isSmall : 0,
-            med: isMedium ? isMedium : 0,
-            large: isLarge ? isLarge : 0,
-            giant: isGiant ? isGiant : 0
+            small: isSmall ? isSmall : false,
+            med: isMedium ? isMedium : false,
+            large: isLarge ? isLarge : false,
+            giant: isGiant ? isGiant : false
         }; 
 
         // const {city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = userData;
@@ -109,11 +110,11 @@ $(() => {
 
     function seekHost(userData) {
         // console.log($.param(userData));
+        localStorage.clear();
         $.get("/result?"+ $.param(userData))
             .then((data) => {
-                // ****** Maybe have to change later
- 
-                window.location.href = "/result";
+                window.location.href = "/result?"+$.param(userData);
+                localStorage.setItem("userData",JSON.stringify(userData));
                 // console.log(data);   
             })
             .catch((err) => {
