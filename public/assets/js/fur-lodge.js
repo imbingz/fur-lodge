@@ -69,6 +69,7 @@ $(() => {
 
     searchForm.on("submit", (event) => {
         event.preventDefault();
+        localStorage.clear();
         console.log("working");
 
         // if (city) {
@@ -87,11 +88,12 @@ $(() => {
             giant: isGiant ? isGiant : false
         }; 
 
+        localStorage.setItem("userData",JSON.stringify(userData));
+
         // const {city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = userData;
 
         //Call signupHost function 
-        seekHost(userData);
-
+        seekHost();
         //Empty input fields
         $("#city-input").val("");
         $("#dog").prop("checked", false);
@@ -108,17 +110,13 @@ $(() => {
         // }
     });
 
-    function seekHost(userData) {
+    function seekHost() {
 
-        console.log("$.param(userData)", $.param(userData));
-
-        // console.log($.param(userData));
-        localStorage.clear();
-        $.get("/result?"+ $.param(userData))
+        const userData = $.param(JSON.parse(localStorage.getItem("userData")));
+        
+        $.get("/result?"+ userData)
             .then((data) => {
-                window.location.href = "/result?"+$.param(userData);
-                localStorage.setItem("userData",JSON.stringify(userData));
-                // console.log(data);   
+                window.location.href = "/result?"+userData;
             })
             .catch((err) => {
                 console.log((err.responseJSON));

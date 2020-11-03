@@ -154,7 +154,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Host.associate = function (models) {
         Host.hasOne(models.Booking, {
-            foreignKey: "host_id"
+            foreignKey: "host_id",
         });
     };
 

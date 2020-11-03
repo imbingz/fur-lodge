@@ -108,6 +108,11 @@ module.exports = (sequelize, DataTypes) => {
                 len: [1,255]
             }
         },
+        active: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        }
     });
 
     Booking.associate = function(models) {
