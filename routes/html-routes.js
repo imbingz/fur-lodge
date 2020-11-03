@@ -115,7 +115,10 @@ module.exports = function(app) {
                         giant: {
                             [Op.eq] : giant,
                         }, 
-                    }
+                    },
+                rate: {
+                    [Op.lte]: rate,
+                }
                 // city: {
                 //     [Op.like]: `%${city}%`
                 // }

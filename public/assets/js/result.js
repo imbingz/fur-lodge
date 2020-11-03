@@ -42,6 +42,7 @@ $(() => {
     /*******
          Handle host unavailable - ??? all host shown in the search result are available ???
     *********/
+    
     function hostUnavailable(seekerInfo) {
         return $.ajax({
             url: "/api/host",
