@@ -1,19 +1,38 @@
-{!-- Psuedo: Render the results of a seeker's search query from index/landing page --}
+{{!-- Navbar --}}
+<nav class="top-bar" id="mainNavigation">
+    <aside class="top-bar-left">
+        <h1>
+
+            <a href="/">
+                <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
+            </a>
+        </h1>
+    </aside>
+    <aside class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li>
+                <a class="host-dropdown">Host</a>
+                <ul class="menu">
+                    <li><a href="/signup">Become Host</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+    </aside>
+</nav>
 
 <!-- button in the available host's li box to book that specific host -->
 
 <h1>Results</h1>
 <div class="">
     {{#each data}}
-        <ul>
-            <li>{{this.dataValues.first_name}} {{this.dataValues.last_name}}</li>
-            <li>{{this.dataValues.email}}</li>
-            <li>{{this.dataValues.phone}}</li>    
-            <li>{{this.dataValues.city}}</li>    
-            <li>{{this.dataValues.bio}}</li>    
-        </ul>
-        {{!-- Modal open button --}}
-        <button  data-open="exampleModal1" type="submit" data-id="{{this.dataValues.id}}" class="button">Book</button>
+    <ul>
+        <li>{{this.dataValues.first_name}} {{this.dataValues.last_name}}</li>
+        <li>{{this.dataValues.email}}</li>
+        <li>{{this.dataValues.phone}}</li>
+        <li>{{this.dataValues.city}}</li>
+        <li>{{this.dataValues.bio}}</li>
+    </ul>
+    {{!-- Modal open button --}}
+    <button data-open="exampleModal1" type="submit" data-id="{{this.dataValues.id}}" class="button">Book</button>
     {{/each}}
 </div>
 <div class="reveal" id="exampleModal1" data-reveal>
