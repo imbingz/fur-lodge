@@ -31,6 +31,12 @@ a.host-dropdown {
     color: black;
 }
 
+li.host-logout {
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
 .dropdown.menu li.is-dropdown-submenu-parent a::after {
     display: none;
 }
