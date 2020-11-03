@@ -7,12 +7,12 @@ $(() => {
 
     //is_pup
     $("input#dog").on("change", function() {
-        isDog = $(this).is(":checked") ? $(this).val() : (isDog = 0);
+        isDog = $(this).is(":checked") ? true: false;
     });
 
     //is_cat
     $("input#cat").on("change", function() {
-        isCat = $(this).is(":checked") ? $(this).val() : (isCat = 0);
+        isCat = $(this).is(":checked") ? true : false;
     });
 
     //Rate value - from number box
@@ -22,12 +22,12 @@ $(() => {
 
     //short_term
     $("input#short-term").on("change", function() {
-        isShortTerm = $(this).is(":checked") ? $(this).val() : (isShortTerm = 0);
+        isShortTerm = $(this).is(":checked") ? true : false;
     });
 
     //long_term
     $("input#long-term").on("change", function() {
-        isLongTerm = $(this).is(":checked") ? $(this).val() : (isLongTerm = 0);
+        isLongTerm = $(this).is(":checked") ? true : false;
     });
 
     //pet_amt
@@ -37,27 +37,27 @@ $(() => {
 
     //Size - Small
     $("input#small").on("change", function() {
-        isSmall = $(this).is(":checked") ? $(this).val(): (isSmall = 0);
+        isSmall = $(this).is(":checked") ? true : false;
     });
 
     //Size - Medium
     $("input#medium").on("change", function() {
-        isMedium = $(this).is(":checked") ? $(this).val(): (isMedium = 0);
+        isMedium = $(this).is(":checked") ? true : false;
     });
 
     //Size - Large
     $("input#large").on("change", function() {
-        isLarge = $(this).is(":checked") ? $(this).val() : (isLarge = 0);
+        isLarge = $(this).is(":checked") ? true : false;
     });
 
     //Size - Giant
     $("input#giant").on("change", function() {
-        isGiant = $(this).is(":checked") ? $(this).val() : (isGiant = 0);   
+        isGiant = $(this).is(":checked") ? true : false;
     });
 
     //Availability ---- Does not work on Bing's right now
     $("#availability").on("change", function(event) {
-        isAvailable = $(this).is(":checked") ? $(this).val() : (isAvailable = 0);
+        isAvailable = $(this).is(":checked") ? true : false;
     });
 
 
@@ -77,17 +77,17 @@ $(() => {
                 phone: $("#phone").val().trim(),
                 city: $("#city").val().trim().toLowerCase(),
                 bio: $("#bio").val().trim(),
-                is_pup: isDog ? isDog : 0,
-                is_cat: isCat ? isCat : 0,
+                is_pup: isDog ? isDog : false,
+                is_cat: isCat ? isCat : false,
                 rate: rateValue,
-                short_term: isShortTerm ? isShortTerm : 0,
-                long_term: isLongTerm ? isLongTerm : 0,
+                short_term: isShortTerm ? isShortTerm : false,
+                long_term: isLongTerm ? isLongTerm : false,
                 pet_amt: petAmount,
-                small: isSmall ? isSmall : 0,
-                med: isMedium ? isMedium : 0,
-                large: isLarge ? isLarge : 0,
-                giant: isGiant ? isGiant : 0,
-                available: isAvailable ? isAvailable : 0,
+                small: isSmall ? isSmall : false,
+                med: isMedium ? isMedium : false,
+                large: isLarge ? isLarge : false,
+                giant: isGiant ? isGiant : false,
+                available: isAvailable ? isAvailable : false,
             };
         
             const { email, password, first_name, last_name, phone, city, bio, is_pup, is_cat, rate, short_term, long_term, pet_amt, small, med, large, giant, available } = hostData;
@@ -145,7 +145,6 @@ $(() => {
             .then((data) => {
                 // ****** Maybe have to change later
                 window.location.href = "/profile";
-                // console.log(data);   
             })
             .catch((err) => {
                 console.log((err.responseJSON));
