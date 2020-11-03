@@ -20,7 +20,7 @@ $(() => {
 
         //Set seeker info obj
         const seekerInfo = {
-
+            host_id: seekerSearchInfo.host_id,
             first_name: $("#first-name").val().trim(),
             last_name: $("#last-name").val().trim(),
             email: $("#email").val().trim(),
@@ -38,10 +38,6 @@ $(() => {
         //Call senderSeerkerInfo function
         sendSeekerInfo(seekerInfo);
     }
-        
-    /*******
-         Handle host unavailable - ??? all host shown in the search result are available ???
-    *********/
     
     function hostUnavailable(seekerInfo) {
         return $.ajax({
@@ -53,14 +49,15 @@ $(() => {
             }
         });
     }
+    
 
     function sendSeekerInfo(seekerInfo) {
         console.log("seekerInfo from booking modal", seekerInfo);
         //ajax call
         $.post("/booking",seekerInfo)
-            // .then((data) => {
-            //     hostUnavailable(seekerInfo);
-            //  })
+            .then((data) => {
+                hostUnavailable(seekerInfo);
+            })
             .then(() => {
                 localStorage.clear();
             // window.location.href = "/";

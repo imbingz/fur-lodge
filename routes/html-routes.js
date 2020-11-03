@@ -125,9 +125,6 @@ module.exports = function(app) {
             }
         })
             .then(results => {
-
-                // console.log("inside get/result ==> result[0]", results[0]);
-
                 res.render("result",{data: results});
             })
             .catch(error => console.log(error));

@@ -2,7 +2,10 @@ const db = require("../models");
 
 module.exports = function (app) {
 
-    app.post("/booking", (req,res) => {
+    app.post("/booking", (req, res) => {
+        //********* Delete later 
+        console.log("inside post/booking req.body: ", req.body);
+        
         db.Booking.create(req.body)
             .then(results => res.json(results))
             .catch(error => console.log(error));
