@@ -12,17 +12,11 @@ $(() => {
 
 
     //Set variables getting from input events for hostData
-    let city, isDog, isCat, isShortTerm, isLongTerm, petAmount, isSmall, isMedium, isLarge, isGiant;
+    let city, isDog, isCat, isShortTerm, isLongTerm, petAmount, rate, isSmall, isMedium, isLarge, isGiant;
 
-    //city
-    // $("input#dog").on("change", function() {
-    //     city = $(this).is(":checked") ? $("input[name=city]:checked", "form#signup").val() : (isDog = 0);
-    // });
-    
     //is_pup
     $("#dogCare").on("change", function() {
         isDog = $(this).is(":checked") ? true : false;
-        // isDog = $(this).is(":checked") ? $("input[name=dog]:checked", "form#search").val() : (isDog = 0);
     });
 
     //is_cat
@@ -44,6 +38,12 @@ $(() => {
     $("#pet-amount").on("keyup mouseup", function() {
         petAmount = $(this).val();
     });
+
+    //rate
+    $("#rate").on("keyup mouseup", function() {
+        rate = $(this).val();
+    });
+
 
     //Size - Small
     $("#small").on("change", function() {
@@ -70,27 +70,27 @@ $(() => {
     searchForm.on("submit", (event) => {
         event.preventDefault();
         localStorage.clear();
-        console.log("working");
 
+        /**********
+         ?????? city will not be null - if - else can be removed ??????
+         ************/
+        
         // if (city) {
-
         const userData = {
             city: cityInput.val().trim().toLowerCase(),
-            // is_pup: isDog ? isDog : 0, 
             is_pup: isDog ? isDog : false, 
             is_cat: isCat ? isCat : false,
             short_term: isShortTerm ? isShortTerm : false,
             long_term: isLongTerm ? isLongTerm : false,
             pet_amt: petAmount,
+            rate: rate,
             small: isSmall ? isSmall : false,
             med: isMedium ? isMedium : false,
             large: isLarge ? isLarge : false,
             giant: isGiant ? isGiant : false
         }; 
-
+        
         localStorage.setItem("userData",JSON.stringify(userData));
-
-        // const {city, bio, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = userData;
 
         //Call signupHost function 
         seekHost();
@@ -105,6 +105,7 @@ $(() => {
         $("#medium").prop("checked", false);
         $("#large").prop("checked", false);
         $("#giant").prop("checked", false);
+        $("#rate").val("");
         // } else {
         // 	alert("City cannot be empty.");
         // }

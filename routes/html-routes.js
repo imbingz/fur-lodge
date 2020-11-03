@@ -79,7 +79,7 @@ module.exports = function(app) {
     app.get("/result", (req,res) => {
         console.log("inside get/result ==> req.query", req.query);
 
-        const {is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = req.query;
+        const {is_pup, is_cat, short_term, long_term, pet_amt, rate, small, med, large, giant} = req.query;
         // const {city, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = req.query;
 
         db.Host.findAll({
@@ -115,16 +115,16 @@ module.exports = function(app) {
                         giant: {
                             [Op.eq] : giant,
                         }, 
-                    }
+                    },
+                rate: {
+                    [Op.lte]: rate,
+                }
                 // city: {
                 //     [Op.like]: `%${city}%`
                 // }
             }
         })
             .then(results => {
-
-                // console.log("inside get/result ==> result[0]", results[0]);
-
                 res.render("result",{data: results});
             })
             .catch(error => console.log(error));
