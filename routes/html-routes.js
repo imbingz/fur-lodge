@@ -45,7 +45,7 @@ module.exports = function(app) {
         console.log(req.user);
         db.Host.findOne({
             where: {
-                id: req.user.id
+                id: req.user.id,
             },
             attributes: [
                 "first_name", 
@@ -77,27 +77,48 @@ module.exports = function(app) {
 
     // Render Search Result Page
     app.get("/result", (req,res) => {
+        console.log("inside get/result ==> req.query", req.query);
 
-       // console.log("inside get/result ==> req.query", req.query);
-
-        const {city, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = req.query;
+        const {is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = req.query;
+        // const {city, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = req.query;
 
         db.Host.findAll({
             attributes: ["id","first_name", "last_name", "email", "phone", "city","bio"],
             where: {
-                is_pup: is_pup ? Boolean(Number("1")) : Boolean(Number("0")),
-                is_cat: is_cat ? Boolean(Number("1")) : Boolean(Number("0")),
-                short_term:short_term ? Boolean(Number("1")) : Boolean(Number("0")), 
-                long_term:long_term ? Boolean(Number("1")) : Boolean(Number("0")), 
-                pet_amt:pet_amt ? Boolean(Number("1")) : Boolean(Number("0")), 
-                small:small ? Boolean(Number("1")) : Boolean(Number("0")), 
-                med:med ? Boolean(Number("1")) : Boolean(Number("0")), 
-                large:large ? Boolean(Number("1")) : Boolean(Number("0")), 
-                giant:giant ? Boolean(Number("1")) : Boolean(Number("0")),
                 available: true,
-                city: {
-                    [Op.like]: `%${city}%`
-                }
+                [Op.or]:
+                    {
+                        is_pup: {
+                            [Op.eq]: is_pup,  
+                        },
+                        is_cat: {
+                            [Op.eq]: is_cat,  
+                        },
+                        short_term: {
+                            [Op.eq]: short_term,  
+                        },
+                        long_term: {
+                            [Op.eq]: long_term,  
+                        },
+                        pet_amt: {
+                            [Op.eq]: pet_amt,  
+                        },
+                        small: {
+                            [Op.eq]: small,  
+                        },
+                        med: {
+                            [Op.eq]: med,  
+                        }, 
+                        large: {
+                            [Op.eq] : large,
+                        }, 
+                        giant: {
+                            [Op.eq] : giant,
+                        }, 
+                    }
+                // city: {
+                //     [Op.like]: `%${city}%`
+                // }
             }
         })
             .then(results => {

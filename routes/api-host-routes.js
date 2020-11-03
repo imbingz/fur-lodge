@@ -59,6 +59,22 @@ module.exports = function (app) {
             res.json(results);
         });
     });
+
+    app.put("/api/host", (req, res) => {
+        const hostId = req.body.host_id;
+        delete req.body.host_id;
+        console.log(`/api/host Req.Body: ${req.body}`);
+        console.log("hostId:"+hostId);
+        db.Host.update(
+            req.body,
+            {
+                where: {
+                    id: hostId
+                }
+            }).then((results) => {
+            res.json(results);
+        });
+    });
     //Host signup route handler - ***** need to change res.redirect path later 
     // app.post("/api/result", (req, res) => {
     //     res.redirect(307, "/result");

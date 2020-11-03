@@ -152,6 +152,7 @@
 {{!--  Profile of seeker the host currently booked with  --}}
 
 {{#if host.Booking}}
+{{#if host.Booking.dataValues.active}}
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
         <div class="small-8 cell">
@@ -174,5 +175,6 @@
         </div>
     </div>
 </div>
+{{/if}}
 {{/if}}
 
