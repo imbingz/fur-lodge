@@ -7,12 +7,12 @@ $(() => {
 
     //is_pup
     $("input#dog").on("change", function() {
-        isDog = $(this).is(":checked") ? $("input[name=is_pup]:checked", "form.signup").val() : (isDog = 0);
+        isDog = $(this).is(":checked") ? $(this).val() : (isDog = 0);
     });
 
     //is_cat
     $("input#cat").on("change", function() {
-        isCat = $(this).is(":checked") ? $("input[name=is_cat]:checked", "form.signup").val() : (isCat = 0);
+        isCat = $(this).is(":checked") ? $(this).val() : (isCat = 0);
     });
 
     //Rate value - from number box
@@ -22,12 +22,12 @@ $(() => {
 
     //short_term
     $("input#short-term").on("change", function() {
-        isShortTerm = $(this).is(":checked") ? $("input[name=short_term]:checked", "form.signup").val() : (isShortTerm = 0);
+        isShortTerm = $(this).is(":checked") ? $(this).val() : (isShortTerm = 0);
     });
 
     //long_term
     $("input#long-term").on("change", function() {
-        isLongTerm = $(this).is(":checked") ? $("input[name=long_term]:checked", "form.signup").val() : (isLongTerm = 0);
+        isLongTerm = $(this).is(":checked") ? $(this).val() : (isLongTerm = 0);
     });
 
     //pet_amt
@@ -37,32 +37,27 @@ $(() => {
 
     //Size - Small
     $("input#small").on("change", function() {
-        isSmall = $(this).is(":checked") ? $("input[name=small]:checked", "form.signup").val() : (isSmall = 0);
+        isSmall = $(this).is(":checked") ? $(this).val(): (isSmall = 0);
     });
 
     //Size - Medium
     $("input#medium").on("change", function() {
-        isMedium = $(this).is(":checked") ? $("input[name=med]:checked", "form.signup").val() : (isMedium = 0);
+        isMedium = $(this).is(":checked") ? $(this).val(): (isMedium = 0);
     });
 
     //Size - Large
     $("input#large").on("change", function() {
-        isLarge = $(this).is(":checked") ? $("input[name=large]:checked", "form.signup").val() : (isLarge = 0);
-        console.log("large size clicked: ", $(this).is(":checked"));
-        
+        isLarge = $(this).is(":checked") ? $(this).val() : (isLarge = 0);
     });
 
     //Size - Giant
     $("input#giant").on("change", function() {
-        isGiant = $(this).is(":checked") ? $("input[name=giant]:checked", "form.signup").val() : (isGiant = 0);
+        isGiant = $(this).is(":checked") ? $(this).val() : (isGiant = 0);   
     });
 
     //Availability ---- Does not work on Bing's right now
-    $("#availability").on("change", () => {
-        isAvailable = $(this).is(":checked") ? $("input[name=availabile]:checked", "form.signup").val() : (isAvailable = 0);
-
-        console.log("availability clicked: ", $(this).is(":checked"));
-        
+    $("#availability").on("change", function(event) {
+        isAvailable = $(this).is(":checked") ? $(this).val() : (isAvailable = 0);
     });
 
 
@@ -95,10 +90,6 @@ $(() => {
                 available: isAvailable ? isAvailable : 0,
             };
         
-        
-            console.log(hostData);
-        
-     
             const { email, password, first_name, last_name, phone, city, bio, is_pup, is_cat, rate, short_term, long_term, pet_amt, small, med, large, giant, available } = hostData;
 
             //Call signupHost function 
