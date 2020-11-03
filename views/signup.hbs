@@ -1,3 +1,24 @@
+{{!-- Navbar --}}
+<nav class="top-bar" id="mainNavigation">
+  <aside class="top-bar-left">
+    <h1>
+
+      <a href="/">
+        <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
+      </a>
+    </h1>
+  </aside>
+  <aside class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li>
+        <a class="host-dropdown">Host</a>
+        <ul class="menu">
+          <li><a href="/login">Login</a></li>
+        </ul>
+  </aside>
+</nav>
+
+{{!-- Signup Form --}}
 <main class="card grid-container grid-x align-center">
   <h3>Become FurLodge Host</h3>
   <form class="signup">
@@ -22,7 +43,7 @@
       {{!-- Phone Number --}}
       <label class="medium-6 cell">Phone Number:
         <input type="text" id="phone" name="phone" class="form-input input-group-field" pattern="[0-9]{10}"
-              title="Phone number should be 10 digit number without separators." required>
+          title="Phone number should be 10 digit number without separators." required>
       </label>
       {{!-- City --}}
       <label class="medium-6 cell">City:
@@ -31,10 +52,10 @@
       {{!-- Bio --}}
       <label class="cell">
         Bio:
-        <textarea type="text" id="bio" name="bio" class="form-input input-group-field" rows="4" cols="30" required placeholder="Introduce yourself ... "></textarea>
-      </label> 
+        <textarea type="text" id="bio" name="bio" class="form-input input-group-field" rows="4" cols="30" required
+          placeholder="Introduce yourself ... "></textarea>
+      </label>
 
-    
       {{!-- Dogs/Cats --}}
       <fieldset class="fieldset medium-6 cell">
         <legend>Open to sit:</legend>
@@ -50,9 +71,10 @@
         </label>
       </fieldset>
       {{!-- Short Term/Long Term --}}
-      <fieldset  class="fieldset medium-6 cell">
+      <fieldset class="fieldset medium-6 cell">
         <legend>Type of sitting:</legend>
-        <input data-min-required="1" type="checkbox" name="short_term" value="1"id="short-term" aria-labelledby="sit-type day sitting">
+        <input data-min-required="1" type="checkbox" name="short_term" value="1" id="short-term"
+          aria-labelledby="sit-type day sitting">
         <label class="choice-label" for="short_term">
           <i class="fas fa-cloud-sun"></i>
           Day Care
@@ -66,7 +88,8 @@
       {{!-- Pet Size --}}
       <fieldset class="fieldset cell">
         <legend>Pet Size Preference:</legend>
-        <input data-min-required="1" type="checkbox" name="small" value="1" id="small" aria-labelledby="size-preference small">
+        <input data-min-required="1" type="checkbox" name="small" value="1" id="small"
+          aria-labelledby="size-preference small">
         <label class="size-choice-label" for="small">0-15lbs</label>
         <input type="checkbox" name="med" value="1" id="medium" aria-labelledby="size-preference medium">
         <label class="size-choice-label" for="med">15-40lbs</label>
@@ -79,13 +102,14 @@
       {{!-- Pet Amount --}}
       <label class="medium-6 cell">
         Maximum number of pets willing to sit: (1-5)
-        <input type="number" id="pet-amount" name="pet_amt" class="form-input input-group-field" value="0" min="1" max="5"
-              required>
+        <input type="number" id="pet-amount" name="pet_amt" class="form-input input-group-field" value="0" min="1"
+          max="5" required>
       </label>
       {{!-- Rate --}}
       <label class="medium-6 cell">
         Rate/Pet/Day: ($20-$100)
-        <input type="number" id="rate" name="rate" class="form-input input-group-field" value="0" min="20" max="100" required>
+        <input type="number" id="rate" name="rate" class="form-input input-group-field" value="0" min="20" max="100"
+          required>
       </label>
     
       {{!-- Availability --}}
