@@ -1,24 +1,24 @@
 /* eslint-disable camelcase */
 //Wait for page to finish loading
 $(() => {
-
-    $(".bookingBtn").on("click", function(event) {
-        console.log($(this).data("id"));
+    //Add Event listener to booking button 
+    $(".bookingBtn").on("click", function() {
         const userData = JSON.parse(localStorage.getItem("userData"));
         userData.host_id = $(this).data("id");
         localStorage.setItem("userData",JSON.stringify(userData));
     });
 
-    //Add event listener 
+    //Add event listener to submit booking buttoon
     $("form.booking").on("submit", $("#submitBooking-btn"), getSeekerInfo);
   
     //Get seeker info 
     function getSeekerInfo(event) {
         event.preventDefault();
-        console.log("booking submit");
+
+        //get userData from localStorage
         const seekerSearchInfo = JSON.parse(localStorage.getItem("userData"));
-        //NEED TO ADD RATE TO SEARCH FORM! ADDING LINE BELOW TO DEFAULT TO $20;
-        seekerSearchInfo.rate = 20;
+
+        //Set seeker info obj
         const seekerInfo = {
 
             first_name: $("#first-name").val().trim(),
@@ -35,12 +35,14 @@ $(() => {
             large: seekerSearchInfo.large,
             giant: seekerSearchInfo.giant
         };
-        
+        //Call senderSeerkerInfo function
         sendSeekerInfo(seekerInfo);
     }
-
+        
+    /*******
+         Handle host unavailable - ??? all host shown in the search result are available ???
+    *********/
     function hostUnavailable(seekerInfo) {
-        console.log("hello");
         return $.ajax({
             url: "/api/host",
             type: "PUT",
@@ -55,9 +57,10 @@ $(() => {
         console.log("seekerInfo from booking modal", seekerInfo);
         //ajax call
         $.post("/booking",seekerInfo)
-            .then((data) => {
-                hostUnavailable(seekerInfo);
-            }).then(() => {
+            // .then((data) => {
+            //     hostUnavailable(seekerInfo);
+            //  })
+            .then(() => {
                 localStorage.clear();
             // window.location.href = "/";
             })
