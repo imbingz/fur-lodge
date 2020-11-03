@@ -109,6 +109,9 @@ $(() => {
     });
 
     function seekHost(userData) {
+
+        console.log("$.param(userData)", $.param(userData));
+
         // console.log($.param(userData));
         localStorage.clear();
         $.get("/result?"+ $.param(userData))

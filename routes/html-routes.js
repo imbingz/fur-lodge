@@ -77,8 +77,11 @@ module.exports = function(app) {
 
     // Render Search Result Page
     app.get("/result", (req,res) => {
-        console.log(req.query);
+
+       // console.log("inside get/result ==> req.query", req.query);
+
         const {city, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = req.query;
+
         db.Host.findAll({
             attributes: ["id","first_name", "last_name", "email", "phone", "city","bio"],
             where: {
@@ -98,6 +101,9 @@ module.exports = function(app) {
             }
         })
             .then(results => {
+
+                // console.log("inside get/result ==> result[0]", results[0]);
+
                 res.render("result",{data: results});
             })
             .catch(error => console.log(error));
