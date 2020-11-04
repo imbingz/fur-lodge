@@ -11,6 +11,7 @@
         <aside class="top-bar-right">
             <ul class="dropdown menu" data-dropdown-menu>
                 <li class="host-logout"><a href="/logout">Logout</a></li>
+            </ul>
         </aside>
     </nav>
 
@@ -18,14 +19,6 @@
 <div class="reveal" id="exampleModal1" data-reveal>
     <form class="editProfile">
         <div class="grid-container grid-x grid-padding-x">
-            {{!-- Email - leave it out for now due to authentication --}}
-            {{!-- <label class="medium-6 cell">Email:
-                <input type="email" id="email" name="email" class="form-input input-group-field" value="{{host.email}}">
-            </label>  --}}
-            {{!-- Password - leave it out for now due to authentication --}}
-            {{!-- <label class="medium-6 cell">Password:
-                <input type="password" id="password" name="password" class="form-input input-group-field" required>
-            </label> --}}
             {{!-- First Name --}}
             <label class="medium-6 cell">First Name:
                 <input type="text" id="first-name" name="first_name" class="form-input input-group-field" value="{{host.first_name}}">
