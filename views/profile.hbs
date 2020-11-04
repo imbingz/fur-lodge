@@ -180,6 +180,8 @@
 </main>
 
 {{!--  Profile of seeker the host currently booked with  --}}
+{{#if host.Booking}}
+{{#if host.Booking.dataValues.active}}
 <h2 class="card grid-container grid-x">Booking Information:</h2>
 <div class="card grid-container grid-x align-center">
     <div class="grid-container grid-x grid-padding-x">
@@ -229,6 +231,8 @@
         </section>
     </div>
 </div>
+{{/if}}
+{{/if}}
 
 {{#if host.Booking}}
 {{#if host.Booking.dataValues.active}}
