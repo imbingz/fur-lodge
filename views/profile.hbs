@@ -40,11 +40,13 @@
             {{!-- City --}}
             <label class="medium-6 cell">City:
                 <select class="form-input" id="city" name="city">
-                    <option value="">Select A City</option>
+                    <option value="{{host.city}}" hidden="hidden" selected="selected">{{host.city}}</option>
                     <option value="Salt Lake City" >Salt Lake City</option>
                     <option value="Orem">Orem</option>
                     <option value="Ogden" >Ogden</option>
                     <option value="Provo" >Provo</option>
+                 
+                   
                 </select>
             </label>
             {{!-- Bio --}}

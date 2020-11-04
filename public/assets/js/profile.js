@@ -3,13 +3,9 @@
 //Wait for the document to load
 
 $(() => {
-    // Gets the part of the url that comes after the "?"
-    // let url = window.location.search;
-   
-
     //Set changeData obj
-    let changeData, prop, value;
-    changeData = {};
+    let prop, value;
+    const changeData = {} ;
 
     //Set event listener on input elements and get values of change fields 
     $("form.editProfile").on("change", "input", function() {
@@ -19,9 +15,7 @@ $(() => {
         } else if ($(this).val() === "false") {
             value = 1;
         } else {
-            value = $(this).val();
-            console.log($(this).val());
-            
+            value = $(this).val();  
         }
         changeData[prop] = value;
     });
@@ -37,9 +31,7 @@ $(() => {
     $("form.editProfile").on("change", "select#city", function() {
         prop = $(this).attr("name");
         value = $(this).val();
-        changeData[prop] = value;
-        console.log("city selected: ", value);
-        
+        changeData[prop] = value; 
     });
 
     //Submit button event listener, send PUT request with changeData.
@@ -47,26 +39,18 @@ $(() => {
 
     function getChanges(event) {    
         event.preventDefault();
-        // console.log("button Click");
-        // **** delete later 
-        console.log(changeData);
-       
-        //Put Reqyest
+        //Put Request
         $.ajax({  
             url: "/api/profile",  
             type: "PUT",  
             dataType: "json",  
             data: changeData,  
             success: function (data) {  
-                console.log(data);
                 window.location.href = "/profile";
             },  
             error: function () {  
                 console.log("Error in Operation");  
             }  
-        // $.put("/api/profile", changeData)
-        //     .then((data) => console.log(data))
-        //     . catch(err => console.log(err));
         });
     }
 

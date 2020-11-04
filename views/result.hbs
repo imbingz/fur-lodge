@@ -40,7 +40,7 @@
 </main>
 {{/each}}
 
-<div class="reveal" id="exampleModal1" data-reveal>
+<div class="reveal" id="exampleModal1" data-reveal data-close-on-click="false" data-close-on-esc="false">
     <form class="booking">
         {{!-- First Name --}}
         <label class="medium-6 cell">First Name:
@@ -70,9 +70,9 @@
 </div>
 
 {{!-- Booking Confirmation - Nested modal --}}
-<div class="booking-confirm reveal" id="exampleModal3" data-reveal>
+<div class="booking-confirm reveal" id="exampleModal3" data-reveal data-close-on-click="false" data-close-on-esc="false">
     <h2 class="confirmation-header">Thank you for booking with <img src="/assets/images/furlodge-logo-2.png" alt="fur lodge"> </h2>
-    <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <a class="close-button" data-close aria-label="Close reveal" type="button" href="/">
         <span aria-hidden="true">&times;</span>
-    </button>
+    </a>
 </div>

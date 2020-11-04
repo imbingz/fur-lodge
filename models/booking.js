@@ -113,7 +113,7 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: true
         }
     });
-
+    //Set up Model/Table association 
     Booking.associate = function(models) {
         Booking.belongsTo(models.Host, {
             foreignKey: {

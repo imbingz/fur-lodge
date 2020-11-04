@@ -1,17 +1,16 @@
 /* eslint-disable camelcase */
 //Wait for page to finish loading
 $(() => {
-    //Add Event listener to booking button 
+    //Add Event listener to booking-button 
     $(".bookingBtn").on("click", function() {
-        console.log("host_id from booking button: ",$(this).data("id"));
         const userData = JSON.parse(localStorage.getItem("userData"));
         userData.host_id = $(this).data("id");
         localStorage.setItem("userData",JSON.stringify(userData));
     });
 
-    //Add event listener to submit booking buttoon
+    //Add event listener to submit-booking-buttoon
     $("form.booking").on("submit", $("#submitBooking-btn"), getSeekerInfo);
-  
+
     //Get seeker info 
     function getSeekerInfo(event) {
         event.preventDefault();
@@ -53,15 +52,14 @@ $(() => {
     
 
     function sendSeekerInfo(seekerInfo) {
-        console.log("seekerInfo from booking modal", seekerInfo);
         //ajax call
         $.post("/booking",seekerInfo)
+            // eslint-disable-next-line no-unused-vars
             .then((data) => {
                 hostUnavailable(seekerInfo);
             })
             .then(() => {
                 localStorage.clear();
-            // window.location.href = "/";
             })
             .catch((err) => {
                 console.log((err.responseJSON));
