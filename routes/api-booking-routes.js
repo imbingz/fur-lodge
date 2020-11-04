@@ -12,6 +12,7 @@ module.exports = function (app) {
     });
 
     app.put("/booking", (req,res) => {
+        console.log("hit api-booking-routes -> put /booking ");
         db.Booking.update(req.body)
             .then(results => res.json(results))
             .catch(error => console.log(error));
