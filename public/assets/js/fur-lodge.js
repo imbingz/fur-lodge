@@ -10,7 +10,6 @@ $(() => {
     const searchForm = $("form#search");
     const cityInput = $("input#city-input");
 
-
     //Set variables getting from input events for hostData
     let city, isDog, isCat, isShortTerm, isLongTerm, petAmount, rate, isSmall, isMedium, isLarge, isGiant;
 
@@ -50,7 +49,6 @@ $(() => {
         rate = $(this).val();
     });
 
-
     //Size - Small
     $("#small").on("change", function() {
         isSmall = $(this).is(":checked") ? true : false;
@@ -70,8 +68,6 @@ $(() => {
     $("#giant").on("change", function() {
         isGiant = $(this).is(":checked") ? true : false;
     });
-
-
 
     searchForm.on("submit", (event) => {
         event.preventDefault();
@@ -94,7 +90,9 @@ $(() => {
             med: isMedium ? isMedium : false,
             large: isLarge ? isLarge : false,
             giant: isGiant ? isGiant : false
-        }; 
+        };
+
+        console.log(userData);
         
         localStorage.setItem("userData",JSON.stringify(userData));
 
