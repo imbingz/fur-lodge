@@ -20,21 +20,24 @@
 </nav>
 
 <!-- button in the available host's li box to book that specific host -->
+<h2 class="card grid-container grid-x">Results</h2>
+{{#each data}}
+<main class="card grid-container grid-x align-center">
+    <div class="grid-container grid-x grid-padding-x">
+        <img class="medium-4 cell profile-img" src="/assets/images/furlodge-profile-pic.jpg" alt="furlodge profile picture">
+        <section class="medium-6 cell host-result">
+            <h3 class="host-name">{{this.dataValues.first_name}} {{this.dataValues.last_name}}</h3>
+            <p>{{this.dataValues.bio}}</p>
+            <p class="host-info-label">Contact Information:
+            <p>Email: {{this.dataValues.email}} - Phone: {{this.dataValues.phone}}</p>
+            <p class="host-info-label">Location:</p>
+            <p style="margin-bottom: 0px;">{{this.dataValues.city}}</p>
+        </section>
+        <button data-open="exampleModal1" type="submit" data-id="{{this.dataValues.id}}" class="medium-2 cell button">Book</button>
+    </div>
+</main>
+{{/each}}
 
-<h1>Results</h1>
-<div class="">
-    {{#each data}}
-    <ul>
-        <li>{{this.dataValues.first_name}} {{this.dataValues.last_name}}</li>
-        <li>{{this.dataValues.email}}</li>
-        <li>{{this.dataValues.phone}}</li>
-        <li>{{this.dataValues.city}}</li>
-        <li>{{this.dataValues.bio}}</li>
-    </ul>
-    {{!-- Modal open button --}}
-    <button data-open="exampleModal1" type="submit" data-id="{{this.dataValues.id}}" class="button bookingBtn">Book</button>
-    {{/each}}
-</div>
 <div class="reveal" id="exampleModal1" data-reveal>
     <form class="booking">
         {{!-- First Name --}}
@@ -55,7 +58,8 @@
                 title="Phone number should be 10 digit number without separators." required>
         </label>
         {{!-- Booking Submit Button and Nested Modal open button --}}
-        <button type="submit" class="button primary expanded cell" id="submitBooking-btn" data-open="exampleModal3">Submit Booking</button>
+        <button type="submit" class="button primary expanded cell" id="submitBooking-btn"
+            data-open="exampleModal3">Submit Booking</button>
     </form>
     {{!-- Close Modal Button --}}
     <button class="button primary expanded cell" data-close aria-label="Close modal" type="button">
@@ -63,9 +67,9 @@
     </button>
 </div>
 
-{{!-- Nested modal --}}
-<div class="reveal" id="exampleModal3" data-reveal>
-    <h2>Thank you for booking with <img src="/assets/images/furlodge-logo-2.png" alt="fur lodge"> </h2>
+{{!-- Booking Confirmation - Nested modal --}}
+<div class="booking-confirm reveal" id="exampleModal3" data-reveal>
+    <h2 class="confirmation-header">Thank you for booking with <img src="/assets/images/furlodge-logo-2.png" alt="fur lodge"> </h2>
     <button class="close-button" data-close aria-label="Close reveal" type="button">
         <span aria-hidden="true">&times;</span>
     </button>
