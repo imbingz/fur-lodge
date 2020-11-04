@@ -3,6 +3,7 @@
 $(() => {
     //Add Event listener to booking button 
     $(".bookingBtn").on("click", function() {
+        console.log("host_id from booking button: ",$(this).data("id"));
         const userData = JSON.parse(localStorage.getItem("userData"));
         userData.host_id = $(this).data("id");
         localStorage.setItem("userData",JSON.stringify(userData));
