@@ -17,7 +17,6 @@ $(() => {
 
         //get userData from localStorage
         const seekerSearchInfo = JSON.parse(localStorage.getItem("userData"));
-        console.log(seekerSearchInfo);
 
         //Set seeker info obj
         const seekerInfo = {
