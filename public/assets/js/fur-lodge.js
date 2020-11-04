@@ -14,6 +14,10 @@ $(() => {
     //Set variables getting from input events for hostData
     let city, isDog, isCat, isShortTerm, isLongTerm, petAmount, rate, isSmall, isMedium, isLarge, isGiant;
 
+    $("#city-input").on("change", function() {
+        city = $(this).val();
+    });
+    
     //is_pup
     $("#dogCare").on("change", function() {
         isDog = $(this).is(":checked") ? true : false;
@@ -77,7 +81,7 @@ $(() => {
         
         // if (city) {
         const userData = {
-            city: cityInput.val().trim().toLowerCase(),
+            city: city,
             is_pup: isDog ? isDog : false, 
             is_cat: isCat ? isCat : false,
             short_term: isShortTerm ? isShortTerm : false,
@@ -95,7 +99,7 @@ $(() => {
         //Call signupHost function 
         seekHost();
         //Empty input fields
-        $("#city-input").val("");
+        $("#city-input").prop("checked", false);
         $("#dog").prop("checked", false);
         $("#cat").prop("checked", false);
         $("#short-term").prop("checked", false);
