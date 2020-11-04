@@ -20,20 +20,11 @@ $(() => {
 
         //Set seeker info obj
         const seekerInfo = {
-            host_id: seekerSearchInfo.host_id,
             first_name: $("#first-name").val().trim(),
             last_name: $("#last-name").val().trim(),
             email: $("#email").val().trim(),
             phone: $("#phone").val().trim(),
-            city: seekerSearchInfo.city,
-            pet_amt: seekerSearchInfo.pet_amt,
-            rate: seekerSearchInfo.rate,
-            is_pup: seekerSearchInfo.is_pup,
-            is_cat: seekerSearchInfo.is_cat,
-            small: seekerSearchInfo.small,
-            med: seekerSearchInfo.med,
-            large: seekerSearchInfo.large,
-            giant: seekerSearchInfo.giant
+            ...seekerSearchInfo
         };
         //Call senderSeerkerInfo function
         sendSeekerInfo(seekerInfo);
