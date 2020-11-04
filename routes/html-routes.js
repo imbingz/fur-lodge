@@ -42,7 +42,6 @@ module.exports = function(app) {
 
     //Render Host Profile Page
     app.get("/profile", isAuthenticated, (req,res) => {
-        console.log(req.user);
         db.Host.findOne({
             where: {
                 id: req.user.id,
@@ -69,7 +68,6 @@ module.exports = function(app) {
             include: [db.Booking]
         })
             .then((results) => {
-                console.log("/profile results.dataValues",results.dataValues);
                 res.render("profile", {host: results.dataValues});
             })
             .catch(error => console.log(error));
@@ -77,15 +75,13 @@ module.exports = function(app) {
 
     // Render Search Result Page
     app.get("/result", (req,res) => {
-        console.log("inside get/result ==> req.query", req.query);
-
+    
         const filteredReq = {};
         for (const [key, value] of Object.entries(req.query)) {
             if(value === "true") { 
                 filteredReq[key] = true;
             }
         }
-        console.log("Filtered Req:", filteredReq);
 
         // const {is_pup, is_cat, short_term, long_term, pet_amt, rate, small, med, large, giant} = req.query;
         const {pet_amt, rate, city} = req.query;
@@ -93,14 +89,13 @@ module.exports = function(app) {
         db.Host.findAll({
             attributes: ["id","first_name", "last_name", "email", "phone", "city","bio"],
             where: {
-                // ...filteredReq,
                 available: true,
                 city: city,
                 rate: {
                     [Op.lte]: rate,
                 },
                 pet_amt: {
-                    [Op.lte]: pet_amt,
+                    [Op.gte]: pet_amt,
                 },
             }
         })
@@ -115,16 +110,4 @@ module.exports = function(app) {
         req.logout();
         res.redirect("/");
     });
-
-    // Here we've add our isAuthenticated middleware to this route.
-    // If the hosts who is not logged in tries to access this route they will be redirected to the signup page
-    // app.get("/profile", isAuthenticated, (req, res) => {
-    //     res.render("profile");
-    // });
-
-    // ***** use this without isAuthenticated middleware temporarily
-    // app.get("/profile", (req, res) => {
-    //     res.render("profile");
-    // });
-
 };

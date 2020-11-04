@@ -151,8 +151,9 @@ module.exports = (sequelize, DataTypes) => {
     Host.addHook("beforeCreate", (host) => {
         host.password = bcrypt.hashSync(host.password, bcrypt.genSaltSync(10), null);
     });
-
-    Host.associate = function (models) {
+    
+    //Set up Model/table association (one host has only one booking)
+    Host.associate = function(models) {
         Host.hasOne(models.Booking, {
             foreignKey: "host_id",
         });
