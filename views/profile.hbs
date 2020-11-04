@@ -16,6 +16,9 @@
 </nav>
 
 {{!-- Edit Profile Modal Starts Here --}}
+
+<h3>Welcome Back {{host.first_name}} </h3>
+
 <div class="reveal" id="exampleModal1" data-reveal>
     <form class="editProfile">
         <div class="grid-container grid-x grid-padding-x">
@@ -36,8 +39,13 @@
             </label>
             {{!-- City --}}
             <label class="medium-6 cell">City:
-                <input type="text" id="city" name="city" class="form-input input-group-field" value="{{host.city}}"
-                    placeholder="City Name">
+                <select class="form-input" id="city" name="city">
+                    <option value="">Select A City</option>
+                    <option value="Salt Lake City" >Salt Lake City</option>
+                    <option value="Orem">Orem</option>
+                    <option value="Ogden" >Ogden</option>
+                    <option value="Provo" >Provo</option>
+                </select>
             </label>
             {{!-- Bio --}}
             <label class="cell">
@@ -249,7 +257,7 @@
                 <li>Day Sitting: {{host.Booking.dataValues.short_term}} </li>
                 <li>Boarding: {{host.Booking.dataValues.long_term}} </li>
                 <li>Pet Amount: {{host.Booking.dataValues.pet_amt}} </li>
-                <li>Rate: ${{host.Booking.dataValues.rate}} </li>
+                <li>Rate: ${{host.rate}} </li>
                 <li>Booking small pets (0-15lbs): {{host.Booking.dataValues.small}} </li>
                 <li>Booking medium pets (16-40lbs): {{host.Booking.dataValues.med}} </li>
                 <li>Booking large pets (41-100lbs): {{host.Booking.dataValues.large}} </li>
@@ -260,3 +268,4 @@
 </div>
 {{/if}}
 {{/if}}
+

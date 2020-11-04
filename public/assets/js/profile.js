@@ -5,6 +5,7 @@
 $(() => {
     // Gets the part of the url that comes after the "?"
     // let url = window.location.search;
+   
 
     //Set changeData obj
     let changeData, prop, value;
@@ -19,6 +20,8 @@ $(() => {
             value = 1;
         } else {
             value = $(this).val();
+            console.log($(this).val());
+            
         }
         changeData[prop] = value;
     });
@@ -28,6 +31,15 @@ $(() => {
         prop = $(this).attr("name");
         value = $(this).val();
         changeData[prop] = value;
+    });
+
+    //Set Event listener on select elements and get value if changed
+    $("form.editProfile").on("change", "select#city", function() {
+        prop = $(this).attr("name");
+        value = $(this).val();
+        changeData[prop] = value;
+        console.log("city selected: ", value);
+        
     });
 
     //Submit button event listener, send PUT request with changeData.
