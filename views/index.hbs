@@ -27,7 +27,13 @@
     {{!-- Input for city where user is lookin for care. --}}
     <div class="grid-container grid-x grid-padding-x">
       <label class="medium-4 cell">I am looking for care in
-        <input class="form-input" id="city-input" type="text" placeholder="City" required>
+        {{!-- <input class="form-input" id="city-input" type="text" placeholder="City" required> --}}
+        <select class="form-input" id="city-input" required>
+          <option value="saltlakecity">Salt Lake City</option>
+          <option value="orem">Orem</option>
+          <option value="ogden">Ogden</option>
+          <option value="provo" >Provo</option>
+        </select>
       </label>
       <label class="medium-4 cell">For how many pets (1-5)
         <input type="number" id="pet-amount" name="pet_amt" class="form-input" value="0" min="1" max="5" required>
