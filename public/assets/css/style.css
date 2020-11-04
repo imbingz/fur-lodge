@@ -250,6 +250,64 @@ div.booking-confirm.reveal {
     }
 }
 
+/* Styles for host profile */
+p.host-info {
+    margin: 0;
+}
+
+section.host-size, section.host-details {
+    margin: 16px 0 0;
+}
+
+section.medium-2.cell.host-info {
+    margin: 0 20px;
+}
+
+button.medium.cell.button {
+    max-width: 75%;
+    margin: 25px auto;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 18px;
+}
+
+label.choice-label-edit {
+    color: #1779ba;
+    margin: 0 16px 0 16px;
+    font-size: 18px;
+    width: 75%;
+    border-radius: 5px 5px 5px 5px;
+}
+
+label.size-choice-label-edit {
+    color: #1779ba;
+    margin: 0 16px 0 16px;
+    font-size: 18px;
+    width: 90%;
+    border-radius: 5px 5px 5px 5px;
+}
+
+/* Media query for responsive design */
+@media only screen and (max-width: 650px) {
+    section.medium-2.cell.host-info {
+        margin: 0
+    }
+
+    label.choice-label-edit {
+        width: 80%;
+    }
+
+    label.size-choice-label-edit {
+        width: 80%;
+    }
+}
+
+/* Styles for booking info on host profile */
+div.card.grid-container.grid-x.align-center {
+    width: 95%;
+    max-width: 1000px;
+    align-self: center;
+    border-radius: 5px 5px 5px 5px;
+}
 
 /*/ Styles added by Christian /*/
 form .form-icons {
