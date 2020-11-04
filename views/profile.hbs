@@ -1,19 +1,19 @@
 {{!-- Navbar --}}
 <nav class="top-bar" id="mainNavigation">
-        <aside class="top-bar-left">
-            <h1>
+    <aside class="top-bar-left">
+        <h1>
 
-                <a href="/">
-                    <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
-                </a>
-            </h1>
-        </aside>
-        <aside class="top-bar-right">
-            <ul class="dropdown menu" data-dropdown-menu>
-                <li class="host-logout"><a href="/logout">Logout</a></li>
-            </ul>
-        </aside>
-    </nav>
+            <a href="/">
+                <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
+            </a>
+        </h1>
+    </aside>
+    <aside class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="host-logout"><a href="/logout">Logout</a></li>
+        </ul>
+    </aside>
+</nav>
 
 {{!-- Edit Profile Modal Starts Here --}}
 <div class="reveal" id="exampleModal1" data-reveal>
@@ -21,11 +21,13 @@
         <div class="grid-container grid-x grid-padding-x">
             {{!-- First Name --}}
             <label class="medium-6 cell">First Name:
-                <input type="text" id="first-name" name="first_name" class="form-input input-group-field" value="{{host.first_name}}">
+                <input type="text" id="first-name" name="first_name" class="form-input input-group-field"
+                    value="{{host.first_name}}">
             </label>
             {{!-- Last Name --}}
             <label class="medium-6 cell">Last Name:
-                <input type="text" id="last-name" name="last_name" class="form-input input-group-field" value="{{host.last_name}}">
+                <input type="text" id="last-name" name="last_name" class="form-input input-group-field"
+                    value="{{host.last_name}}">
             </label>
             {{!-- Phone Number --}}
             <label class="medium-6 cell">Phone Number:
@@ -46,13 +48,15 @@
             {{!-- Dogs/Cats --}}
             <fieldset class="fieldset medium-6 cell">
                 <legend>Open to sit:</legend>
-                <input type="checkbox" name="is_dog" id="dog" value="{{host.is_pup}}" aria-labelledby="pet-type dog" {{#if host.is_pup}} checked {{/if}}>
-                <label class="choice-label" for="dog">
+                <input type="checkbox" name="is_dog" id="dog" value="{{host.is_pup}}" aria-labelledby="pet-type dog"
+                    {{#if host.is_pup}} checked {{/if}}>
+                <label class="choice-label-edit" for="dog">
                     <i class="fas fa-dog"></i>
                     Dog
                 </label>
-                <input type="checkbox" name="is_cat" id="cat" value="{{host.is_cat}}" aria-labelledby="pet-type cat" {{#if host.is_cat}} checked {{/if}}>
-                <label class="choice-label" for="cat">
+                <input type="checkbox" name="is_cat" id="cat" value="{{host.is_cat}}" aria-labelledby="pet-type cat"
+                    {{#if host.is_cat}} checked {{/if}}>
+                <label class="choice-label-edit" for="cat">
                     <i class="fas fa-cat"></i>
                     Cat
                 </label>
@@ -60,13 +64,15 @@
             {{!-- Short Term/Long Term --}}
             <fieldset class="fieldset medium-6 cell">
                 <legend>Type of sitting:</legend>
-                <input type="checkbox" name="short_term" value="{{host.short_term}}" id="short-term" {{#if host.short_term}} checked {{/if}} aria-labelledby="sit-type day sitting">
-                <label class="choice-label" for="short_term">
+                <input type="checkbox" name="short_term" value="{{host.short_term}}" id="short-term"
+                    {{#if host.short_term}} checked {{/if}} aria-labelledby="sit-type day sitting">
+                <label class="choice-label-edit" for="short_term">
                     <i class="fas fa-cloud-sun"></i>
                     Day Care
                 </label>
-                <input type="checkbox" name="long_term" value="{{host.long_term}}" id="long-term" {{#if host.long_term}} checked {{/if}} aria-labelledby="sit-type boarding">
-                <label class="choice-label" for="long_term">
+                <input type="checkbox" name="long_term" value="{{host.long_term}}" id="long-term" {{#if host.long_term}}
+                    checked {{/if}} aria-labelledby="sit-type boarding">
+                <label class="choice-label-edit" for="long_term">
                     <i class="fas fa-suitcase"></i>
                     Boarding
                 </label>
@@ -74,33 +80,40 @@
             {{!-- Pet Size --}}
             <fieldset class="fieldset cell">
                 <legend>Pet Size Preference:</legend>
-                <input type="checkbox" name="small" value="{{host.small}}" id="small" {{#if host.small}} checked {{/if}} aria-labelledby="size-preference small">
-                <label class="size-choice-label" for="small">0-15lbs</label>
-                <input type="checkbox" name="med" value="{{host.med}}" id="medium" {{#if host.med}} checked {{/if}} aria-labelledby="size-preference medium">
-                <label class="size-choice-label" for="med">15-40lbs</label>
-                <input type="checkbox" name="large" value="{{host.large}}" id="large" {{#if host.large}} checked {{/if}} aria-labelledby="size-preference large">
-                <label class="size-choice-label" for="large">40-100lbs</label>
-                <input type="checkbox" name="giant" value="{{host.giant}}" id="giant" {{#if host.giant}} checked {{/if}} aria-labelledby="size-preference giant">
-                <label class="size-choice-label" for="giant">100+</label>
+                <input type="checkbox" name="small" value="{{host.small}}" id="small" {{#if host.small}} checked {{/if}}
+                    aria-labelledby="size-preference small">
+                <label class="size-choice-label-edit" for="small">0-15lbs</label>
+                <input type="checkbox" name="med" value="{{host.med}}" id="medium" {{#if host.med}} checked {{/if}}
+                    aria-labelledby="size-preference medium">
+                <label class="size-choice-label-edit" for="med">15-40lbs</label>
+                <input type="checkbox" name="large" value="{{host.large}}" id="large" {{#if host.large}} checked {{/if}}
+                    aria-labelledby="size-preference large">
+                <label class="size-choice-label-edit" for="large">40-100lbs</label>
+                <input type="checkbox" name="giant" value="{{host.giant}}" id="giant" {{#if host.giant}} checked {{/if}}
+                    aria-labelledby="size-preference giant">
+                <label class="size-choice-label-edit" for="giant">100+</label>
             </fieldset>
             {{!-- Pet Amount --}}
             <label class="medium-6 cell">
-                Maximum number of pets willing to sit: (1-5)
-                <input type="number" id="pet-amount" name="pet_amt" class="form-input input-group-field" value="{{host.pet_amt}}" min="1" max="5">
+                Maximum Pet Amount: (1-5)
+                <input type="number" id="pet-amount" name="pet_amt" class="form-input input-group-field"
+                    value="{{host.pet_amt}}" min="1" max="5">
             </label>
             {{!-- Rate --}}
             <label class="medium-6 cell">
                 Rate/Pet/Day: ($20-$100)
-                <input type="number" id="rate" name="rate" class="form-input input-group-field" value="{{host.rate}}" min="20"
-                    max="100" step="5">
+                <input type="number" id="rate" name="rate" class="form-input input-group-field" value="{{host.rate}}"
+                    min="20" max="100" step="5">
             </label>
             {{!-- Availability --}}
             <fieldset class="fieldset cell">
-                <input type="checkbox" id="availability" name="available" value="{{host.available}}" {{#if host.available}} checked {{/if}} class="input-group-field">
+                <input type="checkbox" id="availability" name="available" value="{{host.available}}"
+                    {{#if host.available}} checked {{/if}} class="input-group-field">
                 <label class="size-choice" for="availabe">I Am Available Immediately</label>
             </fieldset>
             {{!-- Profile Change Submit Button --}}
-            <button type="submit" class="button primary expanded cell" id="submit-btn" data-host="{{host.email}}">Submit</button>
+            <button type="submit" class="button primary expanded cell" id="submit-btn"
+                data-host="{{host.email}}">Submit</button>
         </div>
     </form>
     {{!-- Close Modal Button --}}
@@ -108,41 +121,118 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-{{!-- Edit Profile Button --}}
-<p><button class="button" data-open="exampleModal1" id="editProfile-btn" data-host={{host}} >Edit Profile</button></p>
-
 {{!-- Modal Ends Here --}}
 
 {{!-- Host Profile Information  --}}
 
-<div class="grid-container">
-    <div class="grid-x grid-margin-x">
-        <div class="small-8 cell">
-            <ul>
-                
-                <li>Name: {{host.first_name}} {{host.last_name}} </li>
-                <li>Email: {{host.email}} </li>
-                <li>Phone: {{host.phone}} </li>
-                <li>City: {{host.city}} </li>
-                <li>Bio: {{host.bio}} </li>
-                <li>Host Dogs: {{host.is_pup}} </li>
-                <li>Host Cats: {{host.is_cat}} </li>
-                <li>Rate: ${{host.rate}} </li>
-                <li>Maximum number of pets willing to sit: {{host.pet_amt}} </li>
-                <li>Day Sitting: {{host.short_term}} </li>
-                <li>Boarding: {{host.long_term}} </li>
-                <li>Host small pets (0-15lbs): {{host.small}} </li>
-                <li>Host medium pets (16-40lbs): {{host.med}} </li>
-                <li>Host large pets (41-100lbs): {{host.large}} </li>
-                <li>Host giant pets (100+lbs): {{host.giant}} </li>
-                <li>You are available immediately: {{host.available}} </li>
-            </ul>
-        </div>
+<main class="card grid-container grid-x align-center">
+    <div class="grid-container grid-x grid-padding-x">
+        <img class="medium-4 cell profile-img" src="./assets/images/furlodge-profile-pic.jpg" alt="furlodge profile">
+        <section class="medium-4 cell host-profile">
+            <h3 class="host-name">{{host.first_name}} {{host.last_name}}</h3>
+            <p>{{host.bio}}</p>
+            <p class="host-info-label">Contact Information:
+            <p>Email: {{host.email}} | Phone: {{host.phone}}</p>
+            <p class="host-info-label">Location:</p>
+            <p class="host-info">{{host.city}}</p>
+        </section>
+        <section class="medium-2 cell host-info">
+            <p class="host-info-label" style="margin-top: 20px;">Willing to Host:
+                {{#if host.is_pup}}
+            <p class="host-info">Dogs</p>
+            {{/if}}
+            {{#if host.is_cat}}
+            <p class="host-info">Cats</p>
+            {{/if}}
+            <section class="host-size">
+                {{#if host.small}}
+                <p class="host-info">Small (0-15lbs)</p>
+                {{/if}}
+                {{#if host.med}}
+                <p class="host-info">Medium (15-40lbs)</p>
+                {{/if}}
+                {{#if host.large}}
+                <p class="host-info">Large (40-100lbs)</p>
+                {{/if}}
+                {{#if host.giant}}
+                <p class="host-info">Giant (100+)</p>
+                {{/if}}
+            </section>
+        </section>
+        <section class="medium-2 cell host-info">
+            <p class="host-info-label" style="margin-top: 20px;">Type of Care:</p>
+            {{#if host.long_term}}
+            <p class="host-info">Boarding</p>
+            {{/if}}
+            {{#if host.short_term}}
+            <p class="host-info">Day Care</p>
+            {{/if}}
+            <section class="host-details">
+            <p>Max Pet Amount: {{host.pet_amt}}</p>
+            <p>Rate: ${{host.rate}}</p>
+            {{#if host.available}}
+            <p>Currently Available</p>
+            {{/if}}
+            </section>
+        </section>
+        <button data-open="exampleModal1" type="submit" data-id="" class="medium cell button" id="editProfile-btn" data-host={{host}}>Edit Profile</button>
     </div>
-</div>
-
+</main>
 
 {{!--  Profile of seeker the host currently booked with  --}}
+{{#if host.Booking}}
+{{#if host.Booking.dataValues.active}}
+<h2 class="card grid-container grid-x">Booking Information:</h2>
+<div class="card grid-container grid-x align-center">
+    <div class="grid-container grid-x grid-padding-x">
+        <section class="medium-4 cell host-profile">
+            <h3 class="host-name">{{host.Booking.dataValues.first_name}} {{host.Booking.dataValues.last_name}}</h3>
+            <p class="host-info-label">Contact Information:
+            <p>Email: {{host.Booking.dataValues.email}} | Phone: {{host.Booking.dataValues.phone}}</p>
+        </section>
+        <section class="medium-4 cell host-info">
+            <p class="host-info-label" style="margin-top: 20px;">Booking For:
+                {{#if host.Booking.dataValues.is_pup}}
+            <p class="host-info">Dog</p>
+            {{/if}}
+            {{#if host.Booking.dataValues.is_cat}}
+            <p class="host-info">Cat</p>
+            {{/if}}
+            <section class="host-size">
+                {{#if host.Booking.dataValues.small}}
+                <p class="host-info">Small (0-15lbs)</p>
+                {{/if}}
+                {{#if host.Booking.dataValues.med}}
+                <p class="host-info">Medium (15-40lbs)</p>
+                {{/if}}
+                {{#if host.Booking.dataValues.large}}
+                <p class="host-info">Large (40-100lbs)</p>
+                {{/if}}
+                {{#if host.Booking.dataValues.giant}}
+                <p class="host-info">Giant (100+)</p>
+                {{/if}}
+            </section>
+        </section>
+        <section class="medium-4 cell host-info">
+            <p class="host-info-label" style="margin-top: 20px;">Type of Care:</p>
+            {{#if host.Booking.dataValues.long_term}}
+            <p class="host-info">Boarding</p>
+            {{/if}}
+            {{#if host.Booking.dataValues.short_term}}
+            <p class="host-info">Day Care</p>
+            {{/if}}
+            <section class="host-details">
+            <p>Max Pet Amount: {{host.Booking.dataValues.pet_amt}}</p>
+            <p>Rate: ${{host.rate}}</p>
+            {{#if host.available}}
+            <p>Currently Available</p>
+            {{/if}}
+            </section>
+        </section>
+    </div>
+</div>
+{{/if}}
+{{/if}}
 
 {{#if host.Booking}}
 {{#if host.Booking.dataValues.active}}
@@ -170,4 +260,3 @@
 </div>
 {{/if}}
 {{/if}}
-

@@ -15,6 +15,8 @@ $(() => {
 
     $("#city-input").on("change", function() {
         city = $(this).val();
+        console.log(city);
+        
     });
     
     //is_pup
