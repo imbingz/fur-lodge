@@ -107,6 +107,11 @@ input.form-input {
     border-radius: 5px 5px 5px 5px;
 }
 
+select.form-input {
+    margin: 0 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
 fieldset.fieldset {
     border: 0px;
     padding: 5px 0;
@@ -148,6 +153,10 @@ button.button.primary.expanded.cell {
 
     label.size-choice-label {
         width: 80%;
+    }
+
+    select.form-input {
+        width: 95%;
     }
 }
 
