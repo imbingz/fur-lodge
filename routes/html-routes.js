@@ -79,49 +79,29 @@ module.exports = function(app) {
     app.get("/result", (req,res) => {
         console.log("inside get/result ==> req.query", req.query);
 
-        const {is_pup, is_cat, short_term, long_term, pet_amt, rate, small, med, large, giant} = req.query;
-        // const {city, is_pup, is_cat, short_term, long_term, pet_amt, small, med, large, giant} = req.query;
+        const filteredReq = {};
+        for (const [key, value] of Object.entries(req.query)) {
+            if(value === "true") { 
+                filteredReq[key] = true;
+            }
+        }
+        console.log("Filtered Req:", filteredReq);
+
+        // const {is_pup, is_cat, short_term, long_term, pet_amt, rate, small, med, large, giant} = req.query;
+        const {pet_amt, rate, city} = req.query;
 
         db.Host.findAll({
             attributes: ["id","first_name", "last_name", "email", "phone", "city","bio"],
             where: {
+                ...filteredReq,
                 available: true,
-                [Op.or]:
-                    {
-                        is_pup: {
-                            [Op.eq]: is_pup,  
-                        },
-                        is_cat: {
-                            [Op.eq]: is_cat,  
-                        },
-                        short_term: {
-                            [Op.eq]: short_term,  
-                        },
-                        long_term: {
-                            [Op.eq]: long_term,  
-                        },
-                        pet_amt: {
-                            [Op.eq]: pet_amt,  
-                        },
-                        small: {
-                            [Op.eq]: small,  
-                        },
-                        med: {
-                            [Op.eq]: med,  
-                        }, 
-                        large: {
-                            [Op.eq] : large,
-                        }, 
-                        giant: {
-                            [Op.eq] : giant,
-                        }, 
-                    },
+                city: city,
                 rate: {
                     [Op.lte]: rate,
-                }
-                // city: {
-                //     [Op.like]: `%${city}%`
-                // }
+                },
+                pet_amt: {
+                    [Op.lte]: pet_amt,
+                },
             }
         })
             .then(results => {

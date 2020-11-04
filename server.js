@@ -7,8 +7,6 @@ const session = require("express-session");
 const passport = require("./config/passport");
 const exphbs = require("express-handlebars");
 
-
-
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3000;
 const db = require("./models");
@@ -35,7 +33,7 @@ require("./routes/api-booking-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 //Make sure to take {force: true} out 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({force: true}).then(() => {
     app.listen(PORT, () => {
 		  console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
 	  });
