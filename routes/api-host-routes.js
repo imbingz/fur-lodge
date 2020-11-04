@@ -63,7 +63,7 @@ module.exports = function (app) {
     app.put("/api/host", (req, res) => {
         const hostId = req.body.host_id;
         delete req.body.host_id;
-        console.log(`/api/host Req.Body: ${req.body}`);
+        console.log(`put request in api-host-routes.js -> /api/host Req.Body: ${JSON.stringify(req.body)}`);
         console.log("hostId:"+hostId);
         db.Host.update(
             req.body,
