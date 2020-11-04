@@ -89,6 +89,7 @@ module.exports = function(app) {
         db.Host.findAll({
             attributes: ["id","first_name", "last_name", "email", "phone", "city","bio"],
             where: {
+                ...filteredReq,
                 available: true,
                 city: city,
                 rate: {
