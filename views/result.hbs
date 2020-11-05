@@ -4,7 +4,7 @@
         <h1>
 
             <a href="/">
-                <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
+                <img id="furlodge-logo" src="/assets/images/furlodge-logo.png" alt="FurLodge Logo" loading="lazy">
             </a>
         </h1>
     </aside>
@@ -22,25 +22,28 @@
 </nav>
 
 <!-- button in the available host's li box to book that specific host -->
-<h2 class="card grid-container grid-x">Results:</h2>
+<h2 class="card grid-container grid-x">Available Care In {{searchCity}}</h2>
 {{#each data}}
 <main class="card grid-container grid-x align-center">
     <div class="grid-container grid-x grid-padding-x">
-        <img class="medium-4 cell profile-img" src="/assets/images/furlodge-profile-pic.jpg" alt="furlodge profile picture">
-        <section class="medium-6 cell host-result">
+        <img class="medium-3 cell profile-img" src="/assets/images/furlodge-profile-pic.jpg" alt="furlodge profile picture">
+        <section class="medium-3 cell host-result">
             <h3 class="host-name">{{this.dataValues.first_name}} {{this.dataValues.last_name}}</h3>
             <p>{{this.dataValues.bio}}</p>
+        </section>
+        <section class="medium-3 cell host-info">
             <p class="host-info-label">Contact Information:
-            <p>Email: {{this.dataValues.email}} - Phone: {{this.dataValues.phone}}</p>
+            <p class="host-info">Email: {{this.dataValues.email}}</p>
+            <p>Phone: {{this.dataValues.phone}}</p>
             <p class="host-info-label">Location:</p>
-            <p style="margin-bottom: 0px;">{{this.dataValues.city}}</p>
+            <p>{{this.dataValues.city}}</p>
         </section>
         <button data-open="exampleModal1" type="submit" data-id="{{this.dataValues.id}}" class="medium-2 cell button bookingBtn">Book</button>
     </div>
 </main>
 {{/each}}
 
-<div class="reveal" id="exampleModal1" data-reveal>
+<div class="reveal" id="exampleModal1" data-reveal data-close-on-click="false" data-close-on-esc="false" style="max-height: 400px;">
     <form class="booking">
         {{!-- First Name --}}
         <label class="medium-6 cell">First Name:
@@ -70,9 +73,10 @@
 </div>
 
 {{!-- Booking Confirmation - Nested modal --}}
-<div class="booking-confirm reveal" id="exampleModal3" data-reveal>
-    <h2 class="confirmation-header">Thank you for booking with <img src="/assets/images/furlodge-logo.png" alt="fur lodge"> </h2>
-    <button class="close-button" data-close aria-label="Close reveal" type="button">
+
+<div class="booking-confirm reveal" id="exampleModal3" data-reveal data-close-on-click="false" data-close-on-esc="false">
+    <h2 class="confirmation-header">Thank you for booking with <img src="/assets/images/furlodge-logo-2.png" alt="fur lodge"> </h2>
+    <a class="close-button" data-close aria-label="Close reveal" type="button" href="/">
         <span aria-hidden="true">&times;</span>
-    </button>
+    </a>
 </div>

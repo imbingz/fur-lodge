@@ -143,7 +143,6 @@ $(() => {
             available 
         })
             .then((data) => {
-                // ****** Maybe have to change later
                 window.location.href = "/profile";
             })
             .catch((err) => {

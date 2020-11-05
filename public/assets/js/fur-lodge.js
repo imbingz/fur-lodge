@@ -15,8 +15,6 @@ $(() => {
 
     $("#city-input").on("change", function() {
         city = $(this).val();
-        console.log(city);
-        
     });
     
     //is_pup
@@ -73,11 +71,6 @@ $(() => {
         event.preventDefault();
         localStorage.clear();
 
-        /**********
-         ?????? city will not be null - if - else can be removed ??????
-         ************/
-        
-        // if (city) {
         const userData = {
             city: city,
             is_pup: isDog ? isDog : false, 
@@ -91,8 +84,6 @@ $(() => {
             large: isLarge ? isLarge : false,
             giant: isGiant ? isGiant : false
         };
-
-        console.log(userData);
         
         localStorage.setItem("userData",JSON.stringify(userData));
 
@@ -110,9 +101,6 @@ $(() => {
         $("#large").prop("checked", false);
         $("#giant").prop("checked", false);
         $("#rate").val("");
-        // } else {
-        // 	alert("City cannot be empty.");
-        // }
     });
 
     function seekHost() {

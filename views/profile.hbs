@@ -4,7 +4,7 @@
         <h1>
 
             <a href="/">
-                <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
+                <img id="furlodge-logo" src="/assets/images/furlodge-logo.png" alt="FurLodge Logo" loading="lazy">
             </a>
         </h1>
     </aside>
@@ -17,7 +17,7 @@
 
 {{!-- Edit Profile Modal Starts Here --}}
 
-<h3>Welcome Back {{host.first_name}} </h3>
+<h2 class="card grid-container grid-x">Welcome Back {{host.first_name}}!</h3>
 
 <div class="reveal" id="exampleModal1" data-reveal>
     <form class="editProfile">
@@ -76,13 +76,13 @@
                 <legend>Type of sitting:</legend>
                 <input type="checkbox" name="short_term" value="{{host.short_term}}" id="short-term"
                     {{#if host.short_term}} checked {{/if}} aria-labelledby="sit-type day sitting">
-                <label class="choice-label-edit" for="short_term">
+                <label class="choice-label-edit" for="short-term">
                     <i class="fas fa-cloud-sun"></i>
                     Day Care
                 </label>
                 <input type="checkbox" name="long_term" value="{{host.long_term}}" id="long-term" {{#if host.long_term}}
                     checked {{/if}} aria-labelledby="sit-type boarding">
-                <label class="choice-label-edit" for="long_term">
+                <label class="choice-label-edit" for="long-term">
                     <i class="fas fa-suitcase"></i>
                     Boarding
                 </label>
@@ -95,7 +95,7 @@
                 <label class="size-choice-label-edit" for="small">0-15lbs</label>
                 <input type="checkbox" name="med" value="{{host.med}}" id="medium" {{#if host.med}} checked {{/if}}
                     aria-labelledby="size-preference medium">
-                <label class="size-choice-label-edit" for="med">15-40lbs</label>
+                <label class="size-choice-label-edit" for="medium">15-40lbs</label>
                 <input type="checkbox" name="large" value="{{host.large}}" id="large" {{#if host.large}} checked {{/if}}
                     aria-labelledby="size-preference large">
                 <label class="size-choice-label-edit" for="large">40-100lbs</label>
@@ -137,17 +137,18 @@
 
 <main class="card grid-container grid-x align-center">
     <div class="grid-container grid-x grid-padding-x">
-        <img class="medium-4 cell profile-img" src="./assets/images/furlodge-profile-pic.jpg" alt="furlodge profile">
-        <section class="medium-4 cell host-profile">
+        <img class="medium-3 cell profile-img" src="./assets/images/furlodge-profile-pic.jpg" alt="furlodge profile">
+        <section class="medium-3 cell host-profile">
             <h3 class="host-name">{{host.first_name}} {{host.last_name}}</h3>
             <p>{{host.bio}}</p>
             <p class="host-info-label">Contact Information:
-            <p>Email: {{host.email}} | Phone: {{host.phone}}</p>
+            <p class="host-info">Email: {{host.email}}</p>
+            <p>Phone: {{host.phone}}</p>
             <p class="host-info-label">Location:</p>
             <p class="host-info">{{host.city}}</p>
         </section>
-        <section class="medium-2 cell host-info">
-            <p class="host-info-label" style="margin-top: 20px;">Willing to Host:
+        <section class="medium-3 cell host-info">
+            <p class="host-info-label">Willing to Host:
                 {{#if host.is_pup}}
             <p class="host-info">Dogs</p>
             {{/if}}
@@ -169,8 +170,8 @@
                 {{/if}}
             </section>
         </section>
-        <section class="medium-2 cell host-info">
-            <p class="host-info-label" style="margin-top: 20px;">Type of Care:</p>
+        <section class="medium-3 cell host-info">
+            <p class="host-info-label">Type of Care:</p>
             {{#if host.long_term}}
             <p class="host-info">Boarding</p>
             {{/if}}
@@ -197,11 +198,12 @@
     <div class="grid-container grid-x grid-padding-x">
         <section class="medium-4 cell host-profile">
             <h3 class="host-name">{{host.Booking.dataValues.first_name}} {{host.Booking.dataValues.last_name}}</h3>
-            <p class="host-info-label">Contact Information:
-            <p>Email: {{host.Booking.dataValues.email}} | Phone: {{host.Booking.dataValues.phone}}</p>
+            <p class="host-info-label" style="margin-top: 20px;">Contact Information:
+            <p class="host-info">Email: {{host.Booking.dataValues.email}}</p>
+            <p class="host-info">Phone: {{host.Booking.dataValues.phone}}</p>
         </section>
         <section class="medium-4 cell host-info">
-            <p class="host-info-label" style="margin-top: 20px;">Booking For:
+            <p class="host-info-label">Booking For:
                 {{#if host.Booking.dataValues.is_pup}}
             <p class="host-info">Dog</p>
             {{/if}}
@@ -224,7 +226,7 @@
             </section>
         </section>
         <section class="medium-4 cell host-info">
-            <p class="host-info-label" style="margin-top: 20px;">Type of Care:</p>
+            <p class="host-info-label">Type of Care:</p>
             {{#if host.Booking.dataValues.long_term}}
             <p class="host-info">Boarding</p>
             {{/if}}
@@ -239,33 +241,6 @@
             {{/if}}
             </section>
         </section>
-    </div>
-</div>
-{{/if}}
-{{/if}}
-
-{{#if host.Booking}}
-{{#if host.Booking.dataValues.active}}
-<div class="grid-container">
-    <div class="grid-x grid-margin-x">
-        <div class="small-8 cell">
-            <h2>Booking Information</h2>
-            <ul>
-                <li>Name: {{host.Booking.dataValues.first_name}} {{host.Booking.dataValues.last_name}} </li>
-                <li>Email: {{host.Booking.dataValues.email}} </li>
-                <li>Phone: {{host.Booking.dataValues.phone}} </li>
-                <li>Booking Dogs: {{host.Booking.dataValues.is_pup}} </li>
-                <li>Booking Cats: {{host.Booking.dataValues.is_cat}} </li>
-                <li>Day Sitting: {{host.Booking.dataValues.short_term}} </li>
-                <li>Boarding: {{host.Booking.dataValues.long_term}} </li>
-                <li>Pet Amount: {{host.Booking.dataValues.pet_amt}} </li>
-                <li>Rate: ${{host.rate}} </li>
-                <li>Booking small pets (0-15lbs): {{host.Booking.dataValues.small}} </li>
-                <li>Booking medium pets (16-40lbs): {{host.Booking.dataValues.med}} </li>
-                <li>Booking large pets (41-100lbs): {{host.Booking.dataValues.large}} </li>
-                <li>Booking giant pets (100+lbs): {{host.Booking.dataValues.giant}} </li>
-            </ul>
-        </div>
     </div>
 </div>
 {{/if}}

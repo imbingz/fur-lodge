@@ -32,7 +32,6 @@ $(document).ready(() => {
         })
             .then(() => {
                 window.location.href = "/profile";
-                // If there's an error, log the error
             })
             .catch((err) => {
                 console.log(err);

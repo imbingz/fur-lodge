@@ -12,6 +12,14 @@ h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+
+/* Media queries for changing the body padding for footer and header space */
+@media only screen and (max-width: 1025px) {
+    body {
+        padding: 100px 0 150px;
+    }
+}
+
 @media only screen and (max-width: 650px) {
     body {
         padding: 75px 0 150px;
@@ -38,16 +46,14 @@ img#furlodge-logo {
 }
 
 /* Setting styles for dropdown menu */
-a.host-dropdown {
+a.host-dropdown, li.host-logout a {
     font-size: 25px;
     font-weight: 500;
     color: black;
 }
 
-li.host-logout {
-    font-size: 25px;
-    font-weight: 500;
-    color: black;
+li.host-logout a:hover {
+    color: #1779ba;
 }
 
 .dropdown.menu li.is-dropdown-submenu-parent a::after {
@@ -102,12 +108,7 @@ label {
     margin-top: 18px;
 }
 
-input.form-input {
-    margin: 0 5px;
-    border-radius: 5px 5px 5px 5px;
-}
-
-select.form-input {
+input.form-input, select.form-input {
     margin: 0 5px;
     border-radius: 5px 5px 5px 5px;
 }
@@ -141,24 +142,76 @@ button.button.primary.expanded.cell {
     font-size: 18px;
 }
 
-/* Media query for responsive design */
-@media only screen and (max-width: 550px) {
-    input.form-input {
+/* Media query for responsive search form design */
+@media only screen and (max-width: 1025px) {
+    select.form-input, input.form-input {
         width: 95%;
     }
     
     label.choice-label {
-        width: 80%;
+        width: 85%;
     }
 
     label.size-choice-label {
-        width: 80%;
-    }
-
-    select.form-input {
-        width: 95%;
+        width: 93%;
     }
 }
+
+@media only screen and (max-width: 840px) {
+    label.size-choice-label {
+        width: 92%;
+    }
+}
+
+@media only screen and (max-width: 821px) {
+    label.choice-label {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 746px) {
+    label.size-choice-label {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 648px) {
+    label.choice-label {
+        width: 79%;
+    }
+}
+
+@media only screen and (max-width: 648px) {
+    label.choice-label {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 585px) {
+    label.choice-label, label.size-choice-label {
+        width: 89%;
+    }
+}
+
+@media only screen and (max-width: 538px) {
+    label.choice-label, label.size-choice-label {
+        width: 86%;
+    }
+}
+
+@media only screen and (max-width: 436px) {
+    label.choice-label, label.size-choice-label {
+        width: 82%;
+    }
+}
+
+@media only screen and (max-width: 354px) {
+    label.choice-label, label.size-choice-label {
+        width: 78%;
+    }
+}
+
+
 
 /* Styles for Login Form */
 main.card.grid-container.grid-x.align-center.login {
@@ -184,17 +237,13 @@ textarea.form-input {
 
 /* Media query for responsive design */
 @media only screen and (max-width: 550px) {
-    input.form-input {
-        width: 95%;
-    }
-
-    textarea.bio {
+    input.form-input, textarea.bio {
         width: 95%;
     }
 }
 
 /* Style for search results */
-img.medium-4.cell.profile-img {
+img.medium-3.cell.profile-img, img.large-3.cell.profile-img {
     max-width: 210px;
     max-height: 210px;
     margin: 15px 0;
@@ -236,7 +285,7 @@ div.booking-confirm.reveal {
 
 /* Media query for responsive design */
 @media only screen and (max-width: 650px) {
-    img.medium-4.cell.profile-img {
+    img.medium-3.cell.profile-img {
         margin: 15px auto;
     }
     
@@ -259,8 +308,12 @@ section.host-size, section.host-details {
     margin: 16px 0 0;
 }
 
-section.medium-2.cell.host-info {
-    margin: 0 20px;
+section.medium-2.cell.host-info, section.medium-4.cell.host-info {
+    margin: 20px 20px 0;
+}
+
+section.medium-4.cell.host-info, section.medium-3.cell.host-info {
+    margin: 20px 0 0;
 }
 
 button.medium.cell.button {
@@ -287,17 +340,43 @@ label.size-choice-label-edit {
 }
 
 /* Media query for responsive design */
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 640px) {
     section.medium-2.cell.host-info {
         margin: 0
     }
 
-    label.choice-label-edit {
+    label.choice-label-edit, label.size-choice-label-edit {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 566px) {
+    label.choice-label-edit, label.size-choice-label-edit {
+        width: 88%;
+    }
+}
+
+@media only screen and (max-width: 483px) {
+    label.choice-label-edit, label.size-choice-label-edit {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 401px) {
+    label.choice-label-edit, label.size-choice-label-edit {
+        width: 83%;
+    }
+}
+
+@media only screen and (max-width: 361px) {
+    label.choice-label-edit, label.size-choice-label-edit {
         width: 80%;
     }
+}
 
-    label.size-choice-label-edit {
-        width: 80%;
+@media only screen and (max-width: 319px) {
+    label.choice-label-edit, label.size-choice-label-edit {
+        width: 78%;
     }
 }
 
@@ -329,7 +408,7 @@ p.footer-fun {
     padding: 0;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 1025px) {
     footer.large.callout.secondary {
         text-align: center;
     }
@@ -342,27 +421,4 @@ p.footer-fun {
     p.footer-fun {
         text-align: center;
     }
-}
-
-/*/ Styles added by Christian /*/
-form .form-icons {
-	text-align: center;
-}
-
-form .form-icons h4 {
-	margin-bottom: 1rem;
-}
-
-form .form-icons .input-group-label {
-	background-color: #1779ba;
-	border-color: #1779ba;
-}
-
-form .form-icons .input-group-field {
-	border-color: #1779ba;
-}
-
-form .form-icons .fa {
-	color: white;
-	width: 1rem;
 }
