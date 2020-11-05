@@ -4,7 +4,7 @@
         <h1>
 
             <a href="/">
-                <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
+                <img id="furlodge-logo" src="/assets/images/furlodge-logo.png" alt="FurLodge Logo" loading="lazy">
             </a>
         </h1>
     </aside>
@@ -138,16 +138,17 @@
 <main class="card grid-container grid-x align-center">
     <div class="grid-container grid-x grid-padding-x">
         <img class="medium-4 cell profile-img" src="./assets/images/furlodge-profile-pic.jpg" alt="furlodge profile">
-        <section class="medium-4 cell host-profile">
+        <section class="medium-3 cell host-profile">
             <h3 class="host-name">{{host.first_name}} {{host.last_name}}</h3>
             <p>{{host.bio}}</p>
             <p class="host-info-label">Contact Information:
-            <p>Email: {{host.email}} | Phone: {{host.phone}}</p>
+            <p class="host-info">Email: {{host.email}}</p>
+            <p>Phone: {{host.phone}}</p>
             <p class="host-info-label">Location:</p>
             <p class="host-info">{{host.city}}</p>
         </section>
         <section class="medium-2 cell host-info">
-            <p class="host-info-label" style="margin-top: 20px;">Willing to Host:
+            <p class="host-info-label">Willing to Host:
                 {{#if host.is_pup}}
             <p class="host-info">Dogs</p>
             {{/if}}
@@ -170,7 +171,7 @@
             </section>
         </section>
         <section class="medium-2 cell host-info">
-            <p class="host-info-label" style="margin-top: 20px;">Type of Care:</p>
+            <p class="host-info-label">Type of Care:</p>
             {{#if host.long_term}}
             <p class="host-info">Boarding</p>
             {{/if}}
@@ -197,12 +198,12 @@
     <div class="grid-container grid-x grid-padding-x">
         <section class="medium-4 cell host-profile">
             <h3 class="host-name">{{host.Booking.dataValues.first_name}} {{host.Booking.dataValues.last_name}}</h3>
-            <p class="host-info-label">Contact Information:
+            <p class="host-info-label" style="margin-top: 20px;">Contact Information:
             <p class="host-info">Email: {{host.Booking.dataValues.email}}</p>
             <p class="host-info">Phone: {{host.Booking.dataValues.phone}}</p>
         </section>
         <section class="medium-4 cell host-info">
-            <p class="host-info-label" style="margin-top: 20px;">Booking For:
+            <p class="host-info-label">Booking For:
                 {{#if host.Booking.dataValues.is_pup}}
             <p class="host-info">Dog</p>
             {{/if}}
@@ -225,7 +226,7 @@
             </section>
         </section>
         <section class="medium-4 cell host-info">
-            <p class="host-info-label" style="margin-top: 20px;">Type of Care:</p>
+            <p class="host-info-label">Type of Care:</p>
             {{#if host.Booking.dataValues.long_term}}
             <p class="host-info">Boarding</p>
             {{/if}}
