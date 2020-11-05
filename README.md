@@ -30,7 +30,7 @@
   ##### Github REPO link:  https://github.com/imbingz/fur-lodge
 
   ## Screenshots-Demo
-  <kbd>![screenshot-demo1](./assets/images/)</kbd><kbd>![screenshot-demo2](./assets/images/)</kbd>
+  <kbd>![screenshot-demo1](.public/assets/images/demo1.gif)</kbd><kbd>![screenshot-demo2](public./assets/images/demo2.gif)</kbd>
   
   ## Project Objective
   * To create an Airbnb-like pet boarding marketplace connecting pet owners with people(hosts) who are willing to take care of the pets while their owners are away. Find our beloved furriends a real home to stay and play when we are away. 
@@ -78,7 +78,7 @@
   ## License
   This project is [MIT](https://choosealicense.com/licenses/mit/) licensed.<br />
 
-   Copyright © 2020 [Bing Z.](https://imbingz.github.io/Responsive-Website-Portfolio/), [Christian Boswell](https://github.com/cboswel1), [Tanner Moore](https://github.com/tdmoore004), [Zachary Creek](https://github.com/vivid-green)
+   Copyright © 2020 FurBabiezzzz [Bing Z.](https://imbingz.github.io/Responsive-Website-Portfolio/), [Christian Boswell](https://github.com/cboswel1), [Tanner Moore](https://github.com/tdmoore004), [Zachary Creek](https://github.com/vivid-green)
 
   <hr>
   <p align='center'><i>
