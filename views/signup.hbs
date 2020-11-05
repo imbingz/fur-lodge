@@ -83,12 +83,12 @@
         <legend>Type of sitting:</legend>
         <input data-min-required="1" type="checkbox" name="short_term" id="short-term"
           aria-labelledby="sit-type day sitting">
-        <label class="choice-label" for="short_term">
+        <label class="choice-label" for="short-term">
           <i class="fas fa-cloud-sun"></i>
           Day Care
         </label>
         <input type="checkbox" name="long_term" id="long-term" aria-labelledby="sit-type boarding">
-        <label class="choice-label" for="long_term">
+        <label class="choice-label" for="long-term">
           <i class="fas fa-suitcase"></i>
           Boarding
         </label>
@@ -108,13 +108,13 @@
       </fieldset>
     
       {{!-- Pet Amount --}}
-      <label class="medium-6 cell">
+      <label class="large-6 cell">
         Maximum number of pets willing to sit: (1-5)
         <input type="number" id="pet-amount" name="pet_amt" class="form-input input-group-field" value="0" min="1"
           max="5" required>
       </label>
       {{!-- Rate --}}
-      <label class="medium-6 cell">
+      <label class="large-6 cell">
         Rate/Pet/Day: ($20-$100)
         <input type="number" id="rate" name="rate" class="form-input input-group-field" value="0" min="20" max="100" step="5"
           required>

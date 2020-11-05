@@ -137,7 +137,7 @@
 
 <main class="card grid-container grid-x align-center">
     <div class="grid-container grid-x grid-padding-x">
-        <img class="medium-4 cell profile-img" src="./assets/images/furlodge-profile-pic.jpg" alt="furlodge profile">
+        <img class="medium-3 cell profile-img" src="./assets/images/furlodge-profile-pic.jpg" alt="furlodge profile">
         <section class="medium-3 cell host-profile">
             <h3 class="host-name">{{host.first_name}} {{host.last_name}}</h3>
             <p>{{host.bio}}</p>
@@ -147,7 +147,7 @@
             <p class="host-info-label">Location:</p>
             <p class="host-info">{{host.city}}</p>
         </section>
-        <section class="medium-2 cell host-info">
+        <section class="medium-3 cell host-info">
             <p class="host-info-label">Willing to Host:
                 {{#if host.is_pup}}
             <p class="host-info">Dogs</p>
@@ -170,7 +170,7 @@
                 {{/if}}
             </section>
         </section>
-        <section class="medium-2 cell host-info">
+        <section class="medium-3 cell host-info">
             <p class="host-info-label">Type of Care:</p>
             {{#if host.long_term}}
             <p class="host-info">Boarding</p>

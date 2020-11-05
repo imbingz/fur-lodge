@@ -36,14 +36,14 @@
             <p class="host-info">Email: {{this.dataValues.email}}</p>
             <p>Phone: {{this.dataValues.phone}}</p>
             <p class="host-info-label">Location:</p>
-            <p style="margin-bottom: 0px;">{{this.dataValues.city}}</p>
+            <p>{{this.dataValues.city}}</p>
         </section>
         <button data-open="exampleModal1" type="submit" data-id="{{this.dataValues.id}}" class="medium-2 cell button bookingBtn">Book</button>
     </div>
 </main>
 {{/each}}
 
-<div class="reveal" id="exampleModal1" data-reveal data-close-on-click="false" data-close-on-esc="false">
+<div class="reveal" id="exampleModal1" data-reveal data-close-on-click="false" data-close-on-esc="false" style="max-height: 400px;">
     <form class="booking">
         {{!-- First Name --}}
         <label class="medium-6 cell">First Name:
