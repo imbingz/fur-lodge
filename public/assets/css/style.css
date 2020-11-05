@@ -194,7 +194,7 @@ textarea.form-input {
 }
 
 /* Style for search results */
-img.medium-4.cell.profile-img {
+img.medium-3.cell.profile-img, img.medium-3.cell.profile-img {
     max-width: 210px;
     max-height: 210px;
     margin: 15px 0;
