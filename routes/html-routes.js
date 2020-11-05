@@ -101,7 +101,7 @@ module.exports = function(app) {
             }
         })
             .then(results => {
-                res.render("result",{data: results});
+                res.render("result",{data: results, searchCity: city});
             })
             .catch(error => console.log(error));
     });
