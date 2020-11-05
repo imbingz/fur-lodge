@@ -259,8 +259,12 @@ section.host-size, section.host-details {
     margin: 16px 0 0;
 }
 
-section.medium-2.cell.host-info {
-    margin: 0 20px;
+section.medium-2.cell.host-info, section.medium-4.cell.host-info {
+    margin: 20px 20px 0;
+}
+
+section.medium-4.cell.host-info, section.medium-3.cell.host-info {
+    margin: 20px 0 0;
 }
 
 button.medium.cell.button {

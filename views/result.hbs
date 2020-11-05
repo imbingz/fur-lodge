@@ -4,7 +4,7 @@
         <h1>
 
             <a href="/">
-                <img id="furlodge-logo" src="/assets/images/furlodge-logo-2.png" alt="FurLodge Logo" loading="lazy">
+                <img id="furlodge-logo" src="/assets/images/furlodge-logo.png" alt="FurLodge Logo" loading="lazy">
             </a>
         </h1>
     </aside>
@@ -26,12 +26,15 @@
 {{#each data}}
 <main class="card grid-container grid-x align-center">
     <div class="grid-container grid-x grid-padding-x">
-        <img class="medium-4 cell profile-img" src="/assets/images/furlodge-profile-pic.jpg" alt="furlodge profile picture">
-        <section class="medium-6 cell host-result">
+        <img class="medium-3 cell profile-img" src="/assets/images/furlodge-profile-pic.jpg" alt="furlodge profile picture">
+        <section class="medium-3 cell host-result">
             <h3 class="host-name">{{this.dataValues.first_name}} {{this.dataValues.last_name}}</h3>
             <p>{{this.dataValues.bio}}</p>
+        </section>
+        <section class="medium-3 cell host-info">
             <p class="host-info-label">Contact Information:
-            <p>Email: {{this.dataValues.email}} - Phone: {{this.dataValues.phone}}</p>
+            <p class="host-info">Email: {{this.dataValues.email}}</p>
+            <p>Phone: {{this.dataValues.phone}}</p>
             <p class="host-info-label">Location:</p>
             <p style="margin-bottom: 0px;">{{this.dataValues.city}}</p>
         </section>
