@@ -98,7 +98,8 @@ module.exports = function(app) {
                 pet_amt: {
                     [Op.gte]: pet_amt,
                 },
-            }
+            },
+            order: [["createdAt", "DESC"]]
         })
             .then(results => {
                 res.render("result",{data: results, searchCity: city});
