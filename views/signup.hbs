@@ -32,7 +32,7 @@
       </label>
       {{!-- Password --}}
       <label class="medium-6 cell">Password:
-        <input type="password" id="password" name="password" class="form-input input-group-field" required>
+        <input type="password" id="password" name="password" class="form-input input-group-field" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
       </label>
       {{!-- First Name --}}
       <label class="medium-6 cell">First Name:
