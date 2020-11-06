@@ -34,9 +34,9 @@
   <kbd>![screenshot-demo2](./public/assets/images/demo2.gif)</kbd>
   <kbd>![screenshot-Mobile1](./public/assets/images/screenshot-mobile-search.png)</kbd>
   <kbd>![screenshot-Mobile2](./public/assets/images/screenshot-mobile-result.png)</kbd>
-  <kbd>![screenshot-Mobile3](./public/assets/images/screenshot-mobile-profile.gif)</kbd>
+  <kbd>![screenshot-Mobile3](./public/assets/images/screenshot-mobile-profile.png)</kbd>
   <kbd>![screenshot-Mobile1](./public/assets/images/screenshot-mobile-booking.png)</kbd>
-  <kbd>![screenshot-Mobile4](./public/assets/images/screenshot-mobile-login.gif)</kbd>
+  <kbd>![screenshot-Mobile4](./public/assets/images/screenshot-mobile-login.png)</kbd>
   
   ## Project Objective
   * To create an Airbnb-like pet boarding marketplace connecting pet owners with people(hosts) who are willing to take care of the pets while their owners are away. Find our beloved furriends a real home to stay and play when we are away. 
